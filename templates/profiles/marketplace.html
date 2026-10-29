@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Marketplace | SheSkills</title>
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #fff9fb;
+            color: #30262c;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        .navbar {
+            background: rgba(255,255,255,0.97);
+            border-bottom: 1px solid #f1dce5;
+            padding: 14px 0;
+        }
+
+        .brand {
+            text-decoration: none;
+            color: #9d3f72;
+            font-size: 25px;
+            font-weight: 800;
+        }
+
+        .brand i {
+            margin-right: 7px;
+        }
+
+        .nav-back {
+            text-decoration: none;
+            color: #75656d;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .nav-back:hover {
+            color: #9d3f72;
+        }
+
+        /* ================= PAGE ================= */
+
+        .page-wrapper {
+            max-width: 1250px;
+            margin: auto;
+            padding: 35px 20px 60px;
+        }
+
+        .page-heading {
+            margin-bottom: 25px;
+        }
+
+        .page-heading h1 {
+            font-size: 34px;
+            font-weight: 800;
+            margin-bottom: 7px;
+        }
+
+        .page-heading p {
+            color: #7b6b73;
+            margin: 0;
+        }
+
+        /* ================= FILTER ================= */
+
+        .filter-card {
+            background: white;
+            border: 1px solid #f0dce4;
+            border-radius: 20px;
+            padding: 23px;
+            box-shadow: 0 10px 30px rgba(157,63,114,0.07);
+            margin-bottom: 35px;
+        }
+
+        .filter-label {
+            font-size: 13px;
+            font-weight: 700;
+            color: #63535b;
+            margin-bottom: 7px;
+        }
+
+        .input-group-custom {
+            position: relative;
+        }
+
+        .input-group-custom i {
+            position: absolute;
+            left: 15px;
+            top: 14px;
+            color: #a36a83;
+            z-index: 2;
+        }
+
+        .filter-input,
+        .filter-select {
+            height: 48px;
+            border-radius: 11px;
+            border: 1px solid #e8d4dc;
+            padding-left: 42px;
+        }
+
+        .filter-select {
+            padding-left: 15px;
+        }
+
+        .filter-input:focus,
+        .filter-select:focus {
+            border-color: #c85c87;
+            box-shadow: 0 0 0 3px rgba(200,92,135,0.10);
+        }
+
+        .search-btn {
+            height: 48px;
+            width: 100%;
+            border: none;
+            border-radius: 11px;
+            background: #9d3f72;
+            color: white;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .search-btn:hover {
+            background: #81325d;
+            transform: translateY(-1px);
+        }
+
+        .clear-btn {
+            display: inline-block;
+            margin-top: 12px;
+            color: #9d3f72;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        /* ================= RESULTS ================= */
+
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .results-title {
+            font-size: 22px;
+            font-weight: 800;
+            margin: 0;
+        }
+
+        .results-count {
+            background: #fbe7ef;
+            color: #963b6b;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        /* ================= PROVIDER CARD ================= */
+
+    .provider-card
+    {
+    height: 100%;
+    background: white;
+    border: 1px solid #f0dce4;
+    border-radius: 20px;
+    overflow: visible;
+    transition: 0.3s ease;
+    position: relative;
+    }
+        .provider-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px rgba(157,63,114,0.13);
+            border-color: #e7bdcf;
+        }
+
+       .card-cover {
+    height: 92px;
+    background: radial-gradient(circle at 20% 20%,
+            rgba(255,255,255,.8),
+            transparent 25%
+        ),
+        linear-gradient(
+            120deg,
+            #fbe7ef,
+            #f7d0df
+        );
+
+    position: relative;
+
+    border-radius: 20px 20px 0 0;
+}
+
+        .verified-top {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: white;
+            color: #198754;
+            padding: 5px 9px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            box-shadow: 0 3px 10px rgba(0,0,0,.05);
+        }
+
+        .provider-body {
+            padding: 0 20px 20px;
+        }
+
+<!--        .provider-photo {-->
+<!--            width: 82px;-->
+<!--            height: 82px;-->
+<!--            object-fit: cover;-->
+<!--            border-radius: 50%;-->
+<!--            border: 4px solid white;-->
+<!--            margin-top: -40px;-->
+<!--            background: #fbe7ef;-->
+<!--        }-->
+
+    .provider-photo {
+    width: 82px;
+    height: 82px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    border: 4px solid white;
+    margin-top: -40px;
+    background: #fbe7ef;
+    position: relative;
+    z-index: 5;
+    display: block;
+}
+
+<!--        .default-photo {-->
+<!--            display: flex;-->
+<!--            align-items: center;-->
+<!--            justify-content: center;-->
+<!--            color: #9d3f72;-->
+<!--            font-size: 32px;-->
+<!--        }-->
+    .default-photo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9d3f72;
+    font-size: 32px;
+    position: relative;
+    z-index: 5;
+}
+
+        .provider-name {
+            font-size: 19px;
+            font-weight: 800;
+            margin-top: 12px;
+            margin-bottom: 4px;
+        }
+
+        .verified-icon {
+            color: #198754;
+            font-size: 14px;
+        }
+
+        .location {
+            color: #7b6b73;
+            font-size: 13px;
+            margin-bottom: 13px;
+        }
+
+        .location i {
+            color: #9d3f72;
+        }
+
+        .bio {
+            font-size: 13px;
+            color: #665860;
+            line-height: 1.6;
+            min-height: 42px;
+            margin-bottom: 14px;
+        }
+
+        .provider-stats {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .stat {
+            flex: 1;
+            background: #fff7fa;
+            border-radius: 10px;
+            padding: 9px 5px;
+            text-align: center;
+        }
+
+        .stat strong {
+            display: block;
+            color: #9d3f72;
+            font-size: 14px;
+        }
+
+        .stat span {
+            color: #84737b;
+            font-size: 10px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 18px;
+        }
+
+        .skill-tag {
+            background: #fbe7ef;
+            color: #8e3967;
+            border-radius: 20px;
+            padding: 5px 9px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .view-profile {
+            width: 100%;
+            display: block;
+            text-align: center;
+            background: #9d3f72;
+            color: white;
+            padding: 10px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .view-profile:hover {
+            background: #81325d;
+            color: white;
+        }
+
+        /* ================= EMPTY ================= */
+
+        .empty-state {
+            background: white;
+            border: 1px dashed #ddb6c7;
+            border-radius: 20px;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .empty-state i {
+            font-size: 50px;
+            color: #d487a5;
+        }
+
+        .empty-state h4 {
+            margin-top: 15px;
+            font-weight: 800;
+        }
+
+        .empty-state p {
+            color: #7b6b73;
+        }
+
+        /* ================= ANIMATION ================= */
+
+        .provider-item {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: showCard .5s ease forwards;
+        }
+
+        @keyframes showCard {
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 768px) {
+
+            .page-wrapper {
+                padding: 25px 14px 40px;
+            }
+
+            .page-heading h1 {
+                font-size: 27px;
+            }
+
+            .results-header {
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar sticky-top">
+
+    <div class="container">
+
+        <a href="{% url 'home' %}" class="brand">
+            <i class="bi bi-heart-fill"></i>
+            SheSkills
+        </a>
+        {% if request.user.is_authenticated %}
+            {% if request.user.role == 'customer' %}
+
+                <a href="{% url 'customer_dashboard' %}"
+                    class="nav-back">
+                    <i class="bi bi-arrow-left me-1"></i>
+                    Dashboard
+                </a>
+            {% else %}
+                <a href="{% url 'provider_dashboard' %}"
+                    class="nav-back">
+                    <i class="bi bi-arrow-left me-1"></i>Dashboard
+                </a>
+            {% endif %}
+        {% endif %}
+
+    </div>
+</nav>
+
+
+<!-- ================= MAIN ================= -->
+
+<main class="page-wrapper">
+
+
+    <!-- HEADING -->
+
+    <div class="page-heading">
+
+        <h1>
+            Discover Skilled Women
+        </h1>
+
+        <p>
+            Find talented home-based women and connect with them directly.
+        </p>
+
+    </div>
+
+
+    <!-- ================= FILTER ================= -->
+
+    <div class="filter-card">
+
+        <form
+            method="GET"
+            action="{% url 'marketplace' %}"
+            id="marketplaceForm">
+
+            <div class="row g-3 align-items-end">
+
+                <!-- SKILL -->
+
+                <div class="col-lg-5">
+
+                    <div class="filter-label">
+                        What skill do you need?
+                    </div>
+
+                    <div class="input-group-custom">
+
+                        <i class="bi bi-search"></i>
+
+                        <input
+                            type="text"
+                            name="skill"
+                            id="skillInput"
+                            class="form-control filter-input"
+                            value="{{ skill_query }}"
+                            placeholder="e.g. Tailoring, Baking, Mehendi">
+                    </div>
+
+                </div>
+                <!-- LOCATION -->
+
+                <div class="col-lg-4">
+
+                    <div class="filter-label">
+                        Location
+                    </div>
+
+                    <div class="input-group-custom">
+
+                        <i class="bi bi-geo-alt"></i>
+
+                        <input
+                            type="text"
+                            name="location"
+                            class="form-control filter-input"
+                            value="{{ location_query }}"
+                            placeholder="e.g. Hingoli"
+                        >
+
+                    </div>
+
+                </div>
+                <!-- BUTTON -->
+
+                <div class="col-lg-3">
+
+                    <button
+                        type="submit"
+                        class="search-btn"
+                        id="searchBtn">
+
+                        <i class="bi bi-search me-1"></i>
+                        Find Providers
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            {% if skill_query or location_query %}
+
+                <a
+                    href="{% url 'marketplace' %}"
+                    class="clear-btn"
+                >
+                    <i class="bi bi-x-circle me-1"></i>
+                    Clear search
+                </a>
+
+            {% endif %}
+
+        </form>
+
+    </div>
+
+    <!-- ================= RESULTS HEADER ================= -->
+
+    <div class="results-header">
+
+        <div>
+
+            <h2 class="results-title">
+                {% if skill_query or location_query %}
+                    Search Results
+                {% else %}
+                    Available Providers
+                {% endif %}
+            </h2>
+
+        </div>
+
+        <span class="results-count">
+            {{ providers|length }} providers
+        </span>
+
+    </div>
+
+
+    <!-- ================= PROVIDERS ================= -->
+    <div class="row g-4" id="providerGrid">
+        {% for provider in providers %}
+            <div
+                class="col-md-6 col-lg-4 provider-item"
+                style="animation-delay: {{ forloop.counter0 }}00ms;">
+
+                <div class="provider-card">
+
+                    <!-- COVER -->
+
+                    <div class="card-cover">
+
+                        {% if provider.is_verified %}
+
+                            <div class="verified-top">
+
+                                <i class="bi bi-patch-check-fill me-1"></i>
+
+                                Verified
+
+                            </div>
+
+                        {% endif %}
+
+                    </div>
+
+
+                    <div class="provider-body">
+
+
+                    <div class="photo-wrapper">
+
+    {% if provider.profile_photo %}
+
+        <img
+            src="{{ provider.profile_photo.url }}"
+            class="provider-photo"
+            alt="{{ provider.full_name }}"
+        >
+
+    {% else %}
+
+        <div class="provider-photo default-photo">
+            <i class="bi bi-person"></i>
+        </div>
+
+    {% endif %}
+
+</div>
+
+                        <!-- NAME -->
+
+                        <div class="provider-name">
+
+                            {{ provider.full_name }}
+
+                            {% if provider.is_verified %}
+
+                                <i
+                                    class="bi bi-patch-check-fill verified-icon"
+                                    title="Verified Provider"
+                                ></i>
+
+                            {% endif %}
+
+                        </div>
+
+
+                        <!-- LOCATION -->
+
+                        <div class="location">
+
+                            <i class="bi bi-geo-alt-fill me-1"></i>
+
+                            {{ provider.location }}
+
+                        </div>
+
+
+                        <!-- BIO -->
+
+                        <p class="bio">
+
+                            {% if provider.bio %}
+
+                                {{ provider.bio|truncatechars:95 }}
+
+                            {% else %}
+
+                                Skilled home-based professional ready
+                                to provide quality services.
+
+                            {% endif %}
+
+                        </p>
+
+
+                        <!-- STATS -->
+
+                        <div class="provider-stats">
+
+                            <div class="stat">
+
+                                <strong>
+                                    {{ provider.experience }}
+                                </strong>
+
+                                <span>
+                                    Years Experience
+                                </span>
+
+                            </div>
+
+                            <div class="stat">
+
+                                <strong>
+                                    {{ provider.skills.count }}
+                                </strong>
+
+                                <span>
+                                    Skills
+                                </span>
+
+                            </div>
+
+                            <div class="stat">
+
+                                <strong>
+                                    {{ provider.portfolio.count }}
+                                </strong>
+
+                                <span>
+                                    Portfolio
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- SKILLS -->
+
+                        <div class="skill-tags">
+
+                            {% for provider_skill in provider.skills.all|slice:":4" %}
+
+                                <span class="skill-tag">
+
+                                    {{ provider_skill.skill.name }}
+
+                                </span>
+
+                            {% empty %}
+
+                                <span class="skill-tag">
+                                    Skills not added
+                                </span>
+
+                            {% endfor %}
+
+                        </div>
+
+
+                        <!-- PROFILE -->
+
+                        <a href="{% url 'provider_detail' provider.id %}"
+                            class="view-profile"> View Profile
+                            <i class="bi bi-arrow-right ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        {% empty %}
+            <div class="col-12">
+
+                <div class="empty-state">
+
+                    <i class="bi bi-search-heart"></i>
+
+                    <h4>
+                        No providers found
+                    </h4>
+
+                    <p>
+                        We couldn't find a provider matching your search.
+                        Try another skill or location.
+                    </p>
+
+                    <a
+                        href="{% url 'marketplace' %}"
+                        class="view-profile d-inline-block"
+                        style="width:auto;padding:10px 25px;">
+                              View All Providers
+                    </a>
+
+                </div>
+
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+</main>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+    /* Search button loading */
+
+    const form = document.getElementById("marketplaceForm");
+    const searchBtn = document.getElementById("searchBtn");
+
+    form.addEventListener("submit", function () {
+
+        searchBtn.disabled = true;
+
+        searchBtn.innerHTML =
+            '<span class="spinner-border spinner-border-sm me-2"></span>' +
+            'Searching...';
+    });
+
+    /* Prevent empty spaces from being submitted */
+
+    form.addEventListener("submit", function () {
+
+        const inputs =
+            form.querySelectorAll("input");
+
+        inputs.forEach(input => {
+
+            input.value =
+                input.value.trim();
+
+        });
+
+    });
+
+
+    /* Keyboard shortcut: Ctrl + K */
+
+    document.addEventListener("keydown", function(event) {
+
+        if (
+            (event.ctrlKey || event.metaKey) &&
+            event.key.toLowerCase() === "k"
+        ) {
+
+            event.preventDefault();
+
+            document
+                .getElementById("skillInput")
+                .focus();
+        }
+
+    });
+</script>
+
+
+</body>
+</html>

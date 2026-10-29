@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile | SheSkills</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        body {
+            margin: 0;
+            background: #fff9fb;
+            color: #30262c;
+            font-family: "Segoe UI", sans-serif;
+        }
+        .navbar {
+            background: #fff;
+            border-bottom: 1px solid #f0dce4;
+            padding: 15px 0;
+        }
+        .brand {
+            text-decoration: none;
+            color: #9d3f72;
+            font-size: 24px;
+            font-weight: 800;
+        }
+        .nav-actions a {
+            text-decoration: none;
+            color: #6f6269;
+            font-weight: 600;
+            margin-left: 16px;
+        }
+        .nav-actions a:hover {
+            color: #9d3f72;
+        }
+        .page-container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 35px 20px 60px;
+        }
+        .message {
+            background: #e7f7ed;
+            color: #267344;
+            padding: 13px 18px;
+            margin-bottom: 16px;
+            border-radius: 10px;
+            border-left: 4px solid #42a66a;
+        }
+        .warning {
+            background: #fff6e8;
+            color: #8a5a12;
+            border-left-color: #e0a84a;
+        }
+        .profile-card,
+        .section-card {
+            background: #fff;
+            border: 1px solid #efd9e2;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(157, 63, 114, 0.06);
+            padding: 30px;
+            margin-bottom: 22px;
+        }
+        .profile-top {
+            display: flex;
+            gap: 28px;
+            align-items: flex-start;
+        }
+        .profile-photo {
+            width: 160px;
+            height: 160px;
+            border-radius: 18px;
+            object-fit: cover;
+            background: #fbe7ef;
+            border: 1px solid #efd9e2;
+        }
+        .default-photo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #9d3f72;
+            font-size: 52px;
+        }
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 18px;
+        }
+        .btn-pink {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #9d3f72;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 10px;
+            padding: 10px 16px;
+            font-weight: 600;
+        }
+        .btn-pink:hover {
+            background: #81325d;
+            color: #fff;
+        }
+        .btn-light-pink {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #fff0f5;
+            color: #9d3f72;
+            text-decoration: none;
+            border: 1px solid #e7bfd0;
+            border-radius: 10px;
+            padding: 10px 16px;
+            font-weight: 600;
+        }
+        .skill {
+            display: inline-block;
+            background: #fbe7ef;
+            color: #8e3967;
+            padding: 8px 13px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            margin: 0 8px 8px 0;
+        }
+        .portfolio-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px 12px 0 0;
+        }
+        .portfolio-card {
+            border: 1px solid #f0dce4;
+            border-radius: 15px;
+            overflow: hidden;
+            height: 100%;
+            background: #fff;
+        }
+        @media (max-width: 768px) {
+            .profile-top {
+                display: block;
+            }
+            .profile-photo {
+                margin-bottom: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar">
+    <div class="container d-flex justify-content-between align-items-center">
+        <a href="{% url 'provider_dashboard' %}" class="brand">SheSkills</a>
+        <div class="nav-actions">
+            <a href="{% url 'provider_dashboard' %}">Dashboard</a>
+            <a href="{% url 'logout' %}">Logout</a>
+        </div>
+    </div>
+</nav>
+
+<main class="page-container">
+    {% if messages %}
+        {% for message in messages %}
+            <div class="message {% if message.tags == 'warning' %}warning{% endif %}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <section class="profile-card">
+        <div class="profile-top">
+            {% if profile.profile_photo %}
+                <img src="{{ profile.profile_photo.url }}" alt="{{ profile.full_name }}" class="profile-photo">
+            {% else %}
+                <div class="profile-photo default-photo">
+                    <i class="bi bi-person"></i>
+                </div>
+            {% endif %}
+
+            <div>
+                <h1>{{ profile.full_name }}</h1>
+                <p class="text-muted mb-2">
+                    <i class="bi bi-geo-alt-fill"></i> {{ profile.location }}
+                </p>
+                <p>{{ profile.bio|default:"Add a short bio so customers can learn about your work." }}</p>
+                <p class="mb-0"><strong>Experience:</strong> {{ profile.experience }} years</p>
+                {% if profile.user.phone %}
+                    <p class="mb-0"><strong>Phone:</strong> {{ profile.user.phone }}</p>
+                {% endif %}
+
+                <div class="actions">
+                    <a href="{% url 'edit_profile' %}" class="btn-pink">
+                        <i class="bi bi-pencil"></i> Edit Profile
+                    </a>
+                    <a href="{% url 'provider_detail' profile.id %}" class="btn-light-pink">
+                        View Public Profile
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-card">
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+            <h2 class="h4 mb-0">Skills</h2>
+            <a href="{% url 'add_skill' %}" class="btn-pink">+ Add Skill</a>
+        </div>
+        {% for provider_skill in profile.skills.all %}
+            <span class="skill">{{ provider_skill.skill.name }}</span>
+        {% empty %}
+            <p class="text-muted mb-0">You have not added any skills yet.</p>
+        {% endfor %}
+    </section>
+
+    <section class="section-card">
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+            <h2 class="h4 mb-0">Portfolio</h2>
+            <a href="{% url 'add_portfolio' %}" class="btn-pink">+ Add Work</a>
+        </div>
+        <div class="row g-3">
+            {% for item in profile.portfolio.all %}
+                <div class="col-md-6 col-lg-4">
+                    <div class="portfolio-card">
+                        <img src="{{ item.image.url }}" alt="{{ item.title }}" class="portfolio-image">
+                        <div class="p-3">
+                            <strong>{{ item.title }}</strong>
+                            <div class="text-muted small">{{ item.skill.name }}</div>
+                            {% if item.description %}
+                                <p class="small mb-0 mt-2">{{ item.description }}</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <div class="col-12">
+                    <p class="text-muted mb-0">Upload photos of your work so customers can see your skills.</p>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+</main>
+</body>
+</html>

@@ -1,0 +1,375 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Provider Dashboard | SheSkills</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #fff8f7;
+            color: #333;
+            min-height: 100vh;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: #ffffff;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: 700;
+            color: #c44569;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: #333;
+        }
+
+        .logout-btn {
+            text-decoration: none;
+            color: #c44569;
+            border: 1px solid #c44569;
+            padding: 9px 22px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .logout-btn:hover {
+            background: #c44569;
+            color: white;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1100px;
+            margin: 45px auto;
+            padding: 0 25px;
+        }
+
+        /* Welcome Banner */
+        .welcome-card {
+            background: linear-gradient(120deg, #c44569, #e98a9b);
+            color: white;
+            padding: 45px;
+            border-radius: 22px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 12px 30px rgba(196, 69, 105, 0.18);
+        }
+
+        .welcome-card h1 {
+            font-size: 30px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .welcome-card p {
+            font-size: 15px;
+            line-height: 1.8;
+            max-width: 600px;
+            color: #fff5f6;
+        }
+
+        .welcome-icon {
+            position: absolute;
+            right: 45px;
+            top: 25px;
+            font-size: 95px;
+            opacity: 0.2;
+        }
+
+        /* Messages */
+        .messages {
+            margin-bottom: 22px;
+        }
+
+        .message {
+            background: #e7f7ed;
+            color: #267344;
+            padding: 13px 18px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            border-left: 4px solid #42a66a;
+            font-size: 14px;
+        }
+
+        /* Dashboard Section */
+        .section-title {
+            margin: 35px 0 20px;
+            font-size: 22px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .dashboard-card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 18px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.045);
+            border: 1px solid #f7e8eb;
+        }
+
+        .dashboard-card h3 {
+            font-size: 19px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .dashboard-card p {
+            color: #777;
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 23px;
+        }
+
+        /* Buttons */
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 9px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: #c44569;
+            color: white;
+            border: 1px solid #c44569;
+        }
+
+        .btn-primary:hover {
+            background: #a83255;
+            border-color: #a83255;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: #fff0f3;
+            color: #b83d60;
+            border: 1px solid #f5d2db;
+        }
+
+        .btn-secondary:hover {
+            background: #f9dce4;
+            transform: translateY(-2px);
+        }
+
+        /* Helpful Information */
+        .tip-card {
+            margin-top: 25px;
+            padding: 22px 25px;
+            background: #fff0f3;
+            border-radius: 14px;
+            border: 1px solid #f6dce3;
+        }
+
+        .tip-card h3 {
+            color: #a83255;
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .tip-card p {
+            color: #72535d;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 25px 15px;
+            margin-top: 45px;
+            color: #888;
+            font-size: 13px;
+        }
+
+        footer span {
+            color: #c44569;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 600px) {
+            .navbar {
+                padding: 16px 5%;
+            }
+
+            .logo {
+                font-size: 23px;
+            }
+
+            .container {
+                margin: 25px auto;
+                padding: 0 16px;
+            }
+
+            .welcome-card {
+                padding: 30px 23px;
+            }
+
+            .welcome-card h1 {
+                font-size: 24px;
+            }
+
+            .welcome-card p {
+                font-size: 13px;
+            }
+
+            .welcome-icon {
+                right: 10px;
+                top: 10px;
+                font-size: 65px;
+            }
+
+            .dashboard-card {
+                padding: 23px 20px;
+            }
+
+            .actions {
+                flex-direction: column;
+            }
+
+            .btn {
+                text-align: center;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="{% url 'provider_dashboard' %}" class="logo">
+            🌸She<span>Skills</span>
+        </a>
+
+        <a href="{% url 'logout' %}" class="logout-btn">
+            Logout ↗
+        </a>
+    </nav>
+
+    <main class="container">
+
+        <!-- Django Messages -->
+        {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                    <p class="message">{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <!-- Welcome Banner -->
+        <section class="welcome-card">
+            <div class="welcome-icon">🌷</div>
+
+            <h1>Welcome, {{ request.user.username }}! 👋</h1>
+
+            <p>
+                Your skills have the power to create opportunities.
+                Build your professional profile, showcase your creativity,
+                and connect with customers who value your work.
+            </p>
+        </section>
+
+        <!-- Dashboard -->
+        <h2 class="section-title">Your Dashboard</h2>
+
+        <section class="dashboard-card">
+
+            {% if profile %}
+
+                <h3>✨ Your professional journey continues!</h3>
+
+                <p>
+                    Your provider profile is ready. Keep your details updated
+                    and showcase your best work to attract potential customers.
+                </p>
+
+                <div class="actions">
+<!--                    <a href="{% url 'my_profile' %}" class="btn btn-primary">-->
+<!--                        View My Profile →-->
+<!--                    </a>-->
+                    <a href="{% url 'my_profile' %}" class="btn btn-primary">
+                        View My Profile →
+                    </a>
+
+                    <a href="{% url 'edit_profile' %}" class="btn btn-secondary">
+                        ✏️ Edit Profile
+                    </a>
+                </div>
+
+            {% else %}
+
+                <h3>🌸 Let's create your professional profile!</h3>
+
+                <p>
+                    Tell customers about your skills, experience, and services.
+                    Add your contact details and portfolio to help customers
+                    discover your work.
+                </p>
+
+                <div class="actions">
+                    <a href="{% url 'create_profile' %}" class="btn btn-primary">
+                        + Create My Profile
+                    </a>
+                </div>
+
+            {% endif %}
+
+        </section>
+
+        <!-- Tip Section -->
+        <section class="tip-card">
+            <h3>💡 A little tip for you</h3>
+
+            <p>
+                Upload clear photos of your work, describe your skills,
+                and keep your contact number updated. A complete profile
+                helps customers understand your services and contact you.
+            </p>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        © 2026 <span>SheSkills</span> — Empowering Women Through Skills 💗
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,1633 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SheSkills | Discover Local Talent</title>
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #fffafa;
+            color: #29202a;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            padding: 15px 0;
+        }
+
+        .brand {
+            font-size: 28px;
+            font-weight: 800;
+            color: #9d3f72 !important;
+            letter-spacing: -1px;
+        }
+
+        .brand span {
+            color: #e77a9e;
+        }
+
+        .nav-link {
+            color: #4a4148 !important;
+            font-weight: 500;
+            margin: 0 8px;
+        }
+
+        .nav-link:hover {
+            color: #9d3f72 !important;
+        }
+
+        .btn-login {
+            border: 1px solid #9d3f72;
+            color: #9d3f72;
+            border-radius: 25px;
+            padding: 9px 22px;
+            font-weight: 600;
+        }
+
+        .btn-login:hover {
+            background: #9d3f72;
+            color: white;
+        }
+
+        .btn-register {
+            background: #9d3f72;
+            color: white;
+            border-radius: 25px;
+            padding: 10px 23px;
+            font-weight: 600;
+            border: none;
+        }
+
+        .btn-register:hover {
+            background: #7f2f5b;
+            color: white;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 620px;
+            display: flex;
+            align-items: center;
+            background:
+                radial-gradient(circle at 85% 20%, #ffe5ef 0, transparent 28%),
+                radial-gradient(circle at 10% 90%, #f6e5ef 0, transparent 30%),
+                #fffafa;
+            padding: 70px 0;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            animation: fadeUp 0.8s ease;
+        }
+        .hero-women-image {
+    width: 100%;
+    max-width: 620px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+        .hero-tag {
+            display: inline-block;
+            background: #fbe7ef;
+            color: #9d3f72;
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 5vw, 68px);
+            font-weight: 800;
+            line-height: 1.05;
+            letter-spacing: -2px;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #b54b7e;
+        }
+
+        .hero-description {
+            font-size: 18px;
+            color: #6c626a;
+            line-height: 1.7;
+            max-width: 580px;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .hero-primary {
+            background: #9d3f72;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            padding: 14px 28px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .hero-primary:hover {
+            background: #7f2f5b;
+            transform: translateY(-2px);
+        }
+
+        .hero-secondary {
+            background: white;
+            color: #9d3f72;
+            border: 1px solid #e2c5d4;
+            border-radius: 30px;
+            padding: 14px 28px;
+            font-weight: 600;
+        }
+
+        .hero-secondary:hover {
+            background: #fdf0f5;
+        }
+
+        /* ================= HERO VISUAL ================= */
+
+        .hero-visual {
+            position: relative;
+            min-height: 450px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .main-card {
+            width: 330px;
+            background: white;
+            border-radius: 25px;
+            padding: 25px;
+            box-shadow: 0 20px 60px rgba(90, 40, 70, 0.15);
+            position: relative;
+            z-index: 2;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .profile-placeholder {
+            height: 210px;
+            border-radius: 18px;
+            background: linear-gradient(
+                135deg,
+                #f5c6d9,
+                #e8a7c3
+            );
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 85px;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .verified-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: #e8f7ed;
+            color: #25804a;
+            border-radius: 20px;
+            padding: 5px 10px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            background: #f9edf3;
+            color: #8f3867;
+            padding: 6px 11px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin: 3px;
+        }
+
+        .floating-card {
+            position: absolute;
+            background: white;
+            border-radius: 15px;
+            padding: 14px 18px;
+            box-shadow: 0 12px 35px rgba(90, 40, 70, 0.12);
+            z-index: 3;
+        }
+
+        .floating-one {
+            top: 55px;
+            left: 20px;
+        }
+
+        .floating-two {
+            bottom: 55px;
+            right: 10px;
+        }
+
+        .floating-card i {
+            color: #d65b89;
+            font-size: 22px;
+        }
+
+        /* ================= SEARCH ================= */
+
+        .search-section {
+            margin-top: -50px;
+            position: relative;
+            z-index: 5;
+        }
+
+        .search-container {
+            background: white;
+            border-radius: 20px;
+            padding: 22px;
+            box-shadow: 0 12px 40px rgba(60, 30, 50, 0.12);
+        }
+
+        .search-input {
+            border: none;
+            background: #f8f5f7;
+            border-radius: 12px;
+            padding: 15px 18px;
+            width: 100%;
+            outline: none;
+        }
+
+        .search-input:focus {
+            box-shadow: 0 0 0 2px #d98aac;
+        }
+
+        .search-button {
+            width: 100%;
+            height: 52px;
+            border: none;
+            border-radius: 12px;
+            background: #9d3f72;
+            color: white;
+            font-weight: 600;
+        }
+
+        .search-button:hover {
+            background: #7f2f5b;
+        }
+
+        /* ================= SECTION ================= */
+
+        .section {
+            padding: 90px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            font-weight: 750;
+            margin-bottom: 12px;
+        }
+
+        .section-title p {
+            color: #776d74;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        /* ================= SKILLS ================= */
+
+        .skill-card {
+            background: white;
+            border: 1px solid #f0e3e9;
+            border-radius: 18px;
+            padding: 28px 20px;
+            text-align: center;
+            height: 100%;
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(80, 30, 60, 0.1);
+        }
+
+        .skill-icon {
+            width: 65px;
+            height: 65px;
+            margin: auto auto 18px;
+            border-radius: 18px;
+            background: #fbeaf1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #9d3f72;
+            font-size: 28px;
+        }
+
+        .skill-card h5 {
+            font-weight: 700;
+        }
+
+        .skill-card p {
+            font-size: 14px;
+            color: #80757d;
+            margin: 0;
+        }
+
+        /* ================= HOW IT WORKS ================= */
+
+        .how-section {
+            background: #fcf5f8;
+        }
+
+        .step {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .step-number {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            background: #9d3f72;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: auto auto 20px;
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .step h5 {
+            font-weight: 700;
+        }
+
+        .step p {
+            color: #776d74;
+            font-size: 15px;
+        }
+
+        /* ================= WHY US ================= */
+
+        .feature {
+            display: flex;
+            gap: 18px;
+            margin-bottom: 30px;
+        }
+
+        .feature-icon {
+            min-width: 50px;
+            height: 50px;
+            border-radius: 14px;
+            background: #fbe7ef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #9d3f72;
+            font-size: 22px;
+        }
+
+        .feature h5 {
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .feature p {
+            color: #776d74;
+            margin: 0;
+        }
+
+        /* ================= CTA ================= */
+
+        .cta {
+            padding: 80px 0;
+        }
+
+        .cta-box {
+            background: linear-gradient(
+                135deg,
+                #9d3f72,
+                #c05a87
+            );
+            border-radius: 28px;
+            padding: 65px 30px;
+            text-align: center;
+            color: white;
+        }
+
+        .cta-box h2 {
+            font-size: 40px;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .cta-box p {
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .cta-button {
+            background: white;
+            color: #9d3f72;
+            border: none;
+            border-radius: 30px;
+            padding: 14px 30px;
+            font-weight: 700;
+        }
+
+        .cta-button:hover {
+            background: #fff0f5;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #281d25;
+            color: white;
+            padding: 55px 0 25px;
+        }
+
+        footer .brand {
+            color: white !important;
+        }
+
+        footer p {
+            color: #c5bbc1;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: #c5bbc1;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            border-top: 1px solid #463a43;
+            margin-top: 35px;
+            padding-top: 20px;
+            text-align: center;
+            color: #a99fa5;
+            font-size: 14px;
+        }
+
+        /* ================= ANIMATIONS ================= */
+
+        @keyframes fadeUp {
+
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        @keyframes float {
+
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 991px) {
+
+            .hero {
+                text-align: center;
+            }
+
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-visual {
+                margin-top: 40px;
+            }
+
+        }
+
+        @media (max-width: 576px) {
+
+            .hero {
+                padding: 50px 0;
+            }
+
+            .main-card {
+                width: 290px;
+            }
+
+            .floating-one {
+                left: -5px;
+            }
+
+            .floating-two {
+                right: -5px;
+            }
+
+            .section {
+                padding: 65px 0;
+            }
+
+            .section-title h2 {
+                font-size: 30px;
+            }
+
+            .cta-box h2 {
+                font-size: 30px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar navbar-expand-lg sticky-top">
+
+    <div class="container">
+
+        <a class="navbar-brand brand"
+            href="{% url 'home' %}">
+            She<span>Skills</span>
+        </a>
+
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+        <div
+            class="collapse navbar-collapse"
+            id="navbarMenu">
+
+            <ul class="navbar-nav mx-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#skills">
+                        Skills
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#how">
+                        How It Works
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">
+                        About
+                    </a>
+                </li>
+
+            </ul>
+
+
+            <div class="d-flex gap-2">
+                {% if request.user.is_authenticated %}
+                    {% if request.user.role == 'provider' %}
+                        <a href="{% url 'provider_dashboard' %}" class="btn btn-login">Dashboard</a>
+                    {% else %}
+                        <a href="{% url 'customer_dashboard' %}" class="btn btn-login">Dashboard</a>
+                    {% endif %}
+                    <a href="{% url 'logout' %}" class="btn btn-register">Logout</a>
+                {% else %}
+                    <a href="{% url 'login' %}" class="btn btn-login">Login</a>
+                    <a href="{% url 'register' %}" class="btn btn-register">Join SheSkills</a>
+                {% endif %}
+            </div>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-6">
+
+                <div class="hero-content">
+
+                    <div class="hero-tag">
+                        ✨ Empowering Skills. Creating Opportunities.
+                    </div>
+
+                    <h1>
+                        Discover
+                        <span>talented women</span>
+                        in your community.
+                    </h1>
+
+                    <p class="hero-description">
+
+                        SheSkills connects you with skilled women
+                        offering services from their homes.
+                        Discover their skills, explore their work,
+                        and connect with them directly.
+
+                    </p>
+
+
+                    <div class="hero-buttons">
+
+                        <a
+                            href="{% url 'login' %}"
+                            class="btn hero-primary"
+                        >
+                            <i class="bi bi-search"></i>
+                            Find a Skilled Woman
+                        </a>
+
+
+                        <a
+                            href="{% url 'register' %}"
+                            class="btn hero-secondary"
+                        >
+                            <i class="bi bi-person-plus"></i>
+                            Offer Your Skills
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- HERO VISUAL -->
+
+            <div class="col-lg-6">
+
+                <div class="hero-visual">
+
+
+                    <div class="floating-card floating-one">
+
+                        <div class="d-flex align-items-center gap-2">
+
+                            <i class="bi bi-patch-check-fill"></i>
+
+                            <div>
+
+                                <strong>Verified</strong>
+
+                                <div
+                                    style="
+                                    font-size:12px;
+                                    color:#777;
+                                    "
+                                >
+                                    Skilled Provider
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="main-card">
+
+                        <div class="profile-placeholder">
+                            <img
+    src="{% static 'images/skilled-women.png' %}"
+    alt="Women with different skills"
+    class="hero-women-image"
+>
+                        </div>
+
+                        <div
+                            class="d-flex justify-content-between
+                            align-items-center mb-2"
+                        >
+
+                            <h4 class="mb-0">
+                                Priya Sharma
+                            </h4>
+
+                            <span class="verified-badge">
+                                ✓ Verified
+                            </span>
+
+                        </div>
+
+
+                        <div class="mb-3">
+
+                            <span class="skill-tag">
+                                Tailoring
+                            </span>
+
+                            <span class="skill-tag">
+                                Embroidery
+                            </span>
+
+                            <span class="skill-tag">
+                                Crafting
+                            </span>
+
+                        </div>
+
+
+                        <div
+                            class="d-flex justify-content-between
+                            text-muted"
+                        >
+
+                            <span>
+                                <i class="bi bi-geo-alt"></i>
+                                Hingoli
+                            </span>
+
+                            <span>
+                                ⭐ 4.8
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="floating-card floating-two">
+
+                        <div class="d-flex align-items-center gap-2">
+
+                            <i class="bi bi-heart-fill"></i>
+
+                            <div>
+
+                                <strong>Local Talent</strong>
+
+                                <div
+                                    style="
+                                    font-size:12px;
+                                    color:#777;
+                                    "
+                                >
+                                    Support women
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SEARCH ================= -->
+
+<section class="search-section">
+
+    <div class="container">
+
+        <div class="search-container">
+
+            <form
+                action="{% url 'marketplace' %}"
+                method="GET"
+            >
+
+                <div class="row g-3 align-items-center">
+
+                    <div class="col-lg-5">
+
+                        <div class="position-relative">
+
+                            <i
+                                class="bi bi-search position-absolute"
+                                style="
+                                left:16px;
+                                top:17px;
+                                color:#9d3f72;
+                                "
+                            ></i>
+
+                            <input
+                                type="text"
+                                name="skill"
+                                class="search-input ps-5"
+                                placeholder="What skill are you looking for?"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-lg-4">
+
+                        <div class="position-relative">
+
+                            <i
+                                class="bi bi-geo-alt position-absolute"
+                                style="
+                                left:16px;
+                                top:17px;
+                                color:#9d3f72;
+                                "
+                            ></i>
+
+                            <input
+                                type="text"
+                                name="location"
+                                class="search-input ps-5"
+                                placeholder="Enter your location"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-lg-3">
+
+                        <button
+                            type="submit"
+                            class="search-button"
+                        >
+
+                            <i class="bi bi-search"></i>
+
+                            Search Skilled Women
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= POPULAR SKILLS ================= -->
+
+<section
+    class="section"
+    id="skills"
+>
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                Explore Popular Skills
+            </h2>
+
+            <p>
+                Find talented women offering a variety of
+                skills and services from their homes.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-6 col-md-4 col-lg-3">
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        <i class="bi bi-scissors"></i>
+                    </div>
+
+                    <h5>Tailoring</h5>
+
+                    <p>
+                        Custom clothing & alterations
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-md-4 col-lg-3">
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        ✨
+                    </div>
+
+                    <h5>Mehendi Art</h5>
+
+                    <p>
+                        Beautiful traditional designs
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-md-4 col-lg-3">
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        <i class="bi bi-cake2"></i>
+                    </div>
+
+                    <h5>Baking</h5>
+
+                    <p>
+                        Homemade cakes & desserts
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-md-4 col-lg-3">
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        <i class="bi bi-brush"></i>
+                    </div>
+
+                    <h5>Crafting</h5>
+
+                    <p>
+                        Handmade creative products
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-md-4 col-lg-3">
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        <i class="bi bi-egg-fried"></i>
+                    </div>
+
+                    <h5>Cooking</h5>
+
+                    <p>
+                        Homemade food & specialties
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-md-4 col-lg-3">
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        🧵
+                    </div>
+
+                    <h5>Embroidery</h5>
+
+                    <p>
+                        Detailed hand embroidery
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-md-4 col-lg-3">
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        <i class="bi bi-stars"></i>
+                    </div>
+
+                    <h5>Beauty Services</h5>
+
+                    <p>
+                        Beauty & personal care
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-md-4 col-lg-3">
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        💍
+                    </div>
+
+                    <h5>Jewelry Making</h5>
+
+                    <p>
+                        Handmade jewelry & designs
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= HOW IT WORKS ================= -->
+
+<section
+    class="section how-section"
+    id="how"
+>
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                How SheSkills Works
+            </h2>
+
+            <p>
+                Finding the right skilled woman is simple.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-md-4">
+
+                <div class="step">
+
+                    <div class="step-number">
+                        1
+                    </div>
+
+                    <h5>
+                        Search
+                    </h5>
+
+                    <p>
+                        Search for the skill you need
+                        and choose your location.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="step">
+
+                    <div class="step-number">
+                        2
+                    </div>
+
+                    <h5>
+                        Explore
+                    </h5>
+
+                    <p>
+                        View profiles, skills,
+                        portfolios and reviews.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="step">
+
+                    <div class="step-number">
+                        3
+                    </div>
+
+                    <h5>
+                        Connect
+                    </h5>
+
+                    <p>
+                        Contact the provider directly
+                        and discuss your requirement.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= WHY SHESKILLS ================= -->
+
+<section
+    class="section"
+    id="about"
+>
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+
+            <div class="col-lg-6 mb-5 mb-lg-0">
+
+                <div class="section-title text-start mb-4">
+
+                    <h2>
+                        More Than Just a Marketplace
+                    </h2>
+
+                    <p>
+                        SheSkills helps women turn their
+                        everyday skills into opportunities
+                        while helping customers discover
+                        trusted local talent.
+                    </p>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <div class="feature-icon">
+
+                        <i class="bi bi-person-check"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h5>
+                            Women-Centered Platform
+                        </h5>
+
+                        <p>
+                            A dedicated space for home-based
+                            women to showcase their abilities.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <div class="feature-icon">
+
+                        <i class="bi bi-images"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h5>
+                            Portfolio-Based Profiles
+                        </h5>
+
+                        <p>
+                            Customers can see actual work
+                            before contacting a provider.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <div class="feature-icon">
+
+                        <i class="bi bi-geo-alt"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h5>
+                            Discover Local Talent
+                        </h5>
+
+                        <p>
+                            Find skilled women based on
+                            your required skill and location.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="col-lg-6">
+
+                <div
+                    style="
+                    background:#fbeaf1;
+                    border-radius:30px;
+                    padding:60px;
+                    text-align:center;
+                    "
+                >
+
+                    <div
+                        style="
+                        font-size:100px;
+                        margin-bottom:20px;
+                        "
+                    >
+                        👩‍💼
+                    </div>
+
+                    <h3
+                        style="
+                        font-weight:800;
+                        color:#9d3f72;
+                        "
+                    >
+                        Your Skills Matter.
+                    </h3>
+
+                    <p
+                        style="
+                        color:#756a71;
+                        font-size:17px;
+                        "
+                    >
+                        Share your talent.
+                        Build your profile.
+                        Connect with your community.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CTA ================= -->
+
+<section class="cta">
+
+    <div class="container">
+
+        <div class="cta-box">
+
+            <h2>
+                Ready to Discover Local Talent?
+            </h2>
+
+            <p>
+                Find skilled women around you or
+                create your own profile and showcase
+                what you are good at.
+            </p>
+
+            <a
+                href="{% url 'register' %}"
+                class="btn cta-button"
+            >
+                Join SheSkills
+                <i class="bi bi-arrow-right"></i>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="row">
+
+
+            <div class="col-lg-5 mb-4">
+
+                <div class="brand">
+                    She<span>Skills</span>
+                </div>
+
+                <p class="mt-3">
+                    Empowering home-based women by
+                    connecting their skills with
+                    opportunities in their communities.
+                </p>
+
+            </div>
+
+
+            <div class="col-6 col-lg-3">
+
+                <h6>
+                    Platform
+                </h6>
+
+                <ul class="footer-links mt-3">
+
+                    <li>
+                        <a href="#skills">
+                            Explore Skills
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#how">
+                            How It Works
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{% url 'login' %}">
+                            Login
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="col-6 col-lg-3">
+
+                <h6>
+                    Get Started
+                </h6>
+
+                <ul class="footer-links mt-3">
+
+                    <li>
+                        <a href="{% url 'register' %}">
+                            Join SheSkills
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{% url 'register' %}">
+                            Offer Your Skills
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 SheSkills. All rights reserved.
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- Bootstrap JS -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+></script>
+
+
+<script>
+
+    /* Smooth scrolling */
+
+    document.querySelectorAll(
+        'a[href^="#"]'
+    ).forEach(function(anchor) {
+
+        anchor.addEventListener(
+            "click",
+            function(event) {
+
+                const target =
+                    document.querySelector(
+                        this.getAttribute("href")
+                    );
+
+                if (target) {
+
+                    event.preventDefault();
+
+                    target.scrollIntoView({
+                        behavior: "smooth"
+                    });
+
+                }
+
+            }
+        );
+
+    });
+
+
+    /* Search button animation */
+
+    const searchButton =
+        document.querySelector(".search-button");
+
+    if (searchButton) {
+
+        searchButton.addEventListener(
+            "click",
+            function() {
+
+                this.innerHTML =
+                    '<span class="spinner-border spinner-border-sm me-2"></span>Searching...';
+
+            }
+        );
+
+    }
+
+
+    /* Reveal animation */
+
+    const cards =
+        document.querySelectorAll(
+            ".skill-card, .step, .feature"
+        );
+
+    const observer =
+        new IntersectionObserver(
+            function(entries) {
+
+                entries.forEach(function(entry) {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.style.opacity = "1";
+                        entry.target.style.transform =
+                            "translateY(0)";
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.15
+            }
+        );
+
+
+    cards.forEach(function(card) {
+
+        card.style.opacity = "0";
+        card.style.transform = "translateY(25px)";
+        card.style.transition =
+            "opacity 0.6s ease, transform 0.6s ease";
+
+        observer.observe(card);
+
+    });
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,323 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Skill | SheSkills</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #fff9f5;
+            color: #392a24;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Navigation */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 7%;
+            background: #ffffff;
+            border-bottom: 1px solid #f2e4dc;
+        }
+
+        .brand {
+            font-size: 25px;
+            font-weight: 800;
+            color: #bf6947;
+            text-decoration: none;
+        }
+
+        .brand span {
+            color: #392a24;
+        }
+
+        .back-btn {
+            text-decoration: none;
+            color: #a85839;
+            border: 1px solid #e9c9b8;
+            padding: 9px 17px;
+            border-radius: 30px;
+            font-size: 12px;
+            transition: 0.2s;
+        }
+
+        .back-btn:hover {
+            background: #fff0e6;
+        }
+
+        /* Main section */
+        .page-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 45px 20px;
+        }
+
+        .skill-card {
+            width: 100%;
+            max-width: 520px;
+            background: #ffffff;
+            border: 1px solid #f0e3db;
+            border-radius: 24px;
+            padding: 38px;
+            box-shadow: 0 15px 45px rgba(99, 58, 37, 0.07);
+        }
+
+        .icon-box {
+            width: 58px;
+            height: 58px;
+            display: grid;
+            place-items: center;
+            background: #fff0e6;
+            border-radius: 16px;
+            font-size: 27px;
+            margin-bottom: 22px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            color: #a85839;
+            background: #fbe6d9;
+            padding: 7px 13px;
+            border-radius: 30px;
+            font-size: 10px;
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+
+        h1 {
+            font-size: 29px;
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 13px;
+            line-height: 1.8;
+            color: #89766c;
+            margin-bottom: 28px;
+        }
+
+        /* Django form fields */
+        form p {
+            margin-bottom: 20px;
+        }
+
+        form label {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            color: #5d4840;
+            margin-bottom: 9px;
+        }
+
+        select,
+        input:not([type="checkbox"]):not([type="radio"]),
+        textarea {
+            width: 100%;
+            padding: 13px 14px;
+            border: 1px solid #eee0d8;
+            border-radius: 12px;
+            background: #fffcfa;
+            color: #392a24;
+            font-family: inherit;
+            font-size: 13px;
+            outline: none;
+            transition: 0.2s;
+        }
+
+        select:focus,
+        input:focus,
+        textarea:focus {
+            border-color: #cf805b;
+            background: #ffffff;
+            box-shadow: 0 0 0 4px rgba(207, 128, 91, 0.10);
+        }
+
+        .helptext {
+            display: block;
+            color: #95837a;
+            font-size: 10px;
+            margin-top: 7px;
+        }
+
+        .errorlist {
+            list-style: none;
+            color: #c0392b;
+            font-size: 11px;
+            margin: 7px 0;
+        }
+
+        /* Button */
+        .submit-btn {
+            width: 100%;
+            border: none;
+            background: #bf6947;
+            color: #ffffff;
+            padding: 15px;
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 8px;
+            transition: 0.25s;
+        }
+
+        .submit-btn:hover {
+            background: #a95636;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(191, 105, 71, 0.2);
+        }
+
+        .bottom-link {
+            display: block;
+            text-align: center;
+            margin-top: 22px;
+            font-size: 12px;
+            color: #a85839;
+            text-decoration: none;
+        }
+
+        .bottom-link:hover {
+            text-decoration: underline;
+        }
+
+        .tip {
+            background: #fff7f2;
+            border: 1px solid #f4e4d9;
+            border-radius: 12px;
+            padding: 14px;
+            margin-top: 23px;
+            color: #806e64;
+            font-size: 11px;
+            line-height: 1.8;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #9b8980;
+            font-size: 11px;
+        }
+
+        @media (max-width: 500px) {
+            .navbar {
+                padding: 17px;
+            }
+
+            .brand {
+                font-size: 21px;
+            }
+
+            .skill-card {
+                padding: 25px 20px;
+                border-radius: 18px;
+            }
+
+            h1 {
+                font-size: 25px;
+            }
+
+            .back-btn {
+                padding: 8px 11px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <a href="/" class="brand">She<span>Skills</span> 🌸</a>
+
+        <a href="{% url 'my_profile' %}" class="back-btn">
+            ← My Profile
+        </a>
+    </nav>
+<!---->
+   {% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-info alert-dismissible fade show"
+             role="alert">
+            {{ message }}
+            <button type="button"
+                    class="btn-close"
+                    data-bs-dismiss="alert"
+                    aria-label="Close"></button>
+        </div>
+    {% endfor %}
+{% endif %}
+
+<!--    -->
+    <main class="page-container">
+        <section class="skill-card">
+
+            <div class="icon-box">✨</div>
+
+            <div class="eyebrow">GROW YOUR PROFILE</div>
+
+            <h1>Add Your Skill</h1>
+
+            <p class="subtitle">
+                Every skill tells a story. Choose the services you offer
+                to help customers discover your talent on SheSkills.
+            </p>
+
+<!--            <form method="POST">-->
+<!--                {% csrf_token %}-->
+
+<!--                {{ form.as_p }}-->
+
+<!--                <button type="submit" class="submit-btn">-->
+<!--                    <a  href="{% url 'my_profile' %}" ></a>-->
+<!--                    Add Skill →-->
+<!--                </button>-->
+<!--            </form>-->
+
+
+<form method="POST">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button type="submit" class="submit-btn">
+        Add Skill →
+    </button>
+</form>
+
+            <div class="tip">
+                <strong>💡 Tip:</strong>
+                Select a skill that matches the services you provide,
+                such as tailoring, mehendi, cooking or beauty services.
+            </div>
+
+            <a href="{% url 'my_profile' %}" class="bottom-link">
+                ← Back to My Profile
+            </a>
+
+        </section>
+    </main>
+
+    <footer>
+        © 2026 SheSkills · Empowering women through their talents 🌸
+    </footer>
+
+</body>
+</html>

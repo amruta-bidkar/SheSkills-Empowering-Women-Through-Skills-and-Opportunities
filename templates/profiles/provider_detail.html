@@ -1,0 +1,1992 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+
+<!--<head>-->
+
+<!--    <meta charset="UTF-8">-->
+
+<!--    <meta-->
+<!--        name="viewport"-->
+<!--        content="width=device-width, initial-scale=1.0"-->
+<!--    >-->
+
+<!--    <title>{{ provider.full_name }} | SheSkills</title>-->
+
+<!--    &lt;!&ndash; Bootstrap &ndash;&gt;-->
+<!--    <link-->
+<!--        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"-->
+<!--        rel="stylesheet"-->
+<!--    >-->
+
+<!--    &lt;!&ndash; Bootstrap Icons &ndash;&gt;-->
+<!--    <link-->
+<!--        rel="stylesheet"-->
+<!--        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"-->
+<!--    >-->
+
+<!--    <style>-->
+
+<!--        * {-->
+<!--            box-sizing: border-box;-->
+<!--        }-->
+
+<!--        body {-->
+<!--            margin: 0;-->
+<!--            background: #fff9fb;-->
+<!--            color: #30262c;-->
+<!--            font-family: "Segoe UI", sans-serif;-->
+<!--        }-->
+
+<!--        /* ================= NAVBAR ================= */-->
+
+<!--        .navbar {-->
+<!--            background: white;-->
+<!--            border-bottom: 1px solid #f0dce4;-->
+<!--            padding: 15px 0;-->
+<!--        }-->
+
+<!--        .brand {-->
+<!--            text-decoration: none;-->
+<!--            color: #9d3f72;-->
+<!--            font-size: 24px;-->
+<!--            font-weight: 800;-->
+<!--        }-->
+
+<!--        .brand i {-->
+<!--            margin-right: 6px;-->
+<!--        }-->
+
+<!--        .back-link {-->
+<!--            text-decoration: none;-->
+<!--            color: #6f6269;-->
+<!--            font-weight: 600;-->
+<!--            margin-left: 900px;-->
+<!--        }-->
+
+<!--        .back-link:hover {-->
+<!--            color: #9d3f72;-->
+<!--        }-->
+
+<!--        /* ================= PAGE ================= */-->
+
+<!--        .page-container {-->
+<!--            max-width: 1100px;-->
+<!--            margin: auto;-->
+<!--            padding: 35px 20px 60px;-->
+<!--        }-->
+
+<!--        /* ================= PROVIDER DETAILS ================= */-->
+
+<!--        .provider-details {-->
+<!--            background: white;-->
+<!--            border: 1px solid #efd9e2;-->
+<!--            border-radius: 20px;-->
+<!--            padding: 35px;-->
+<!--            box-shadow: 0 8px 30px rgba(157, 63, 114, 0.07);-->
+<!--        }-->
+
+<!--        .provider-top {-->
+<!--            display: flex;-->
+<!--            gap: 35px;-->
+<!--            align-items: flex-start;-->
+<!--        }-->
+
+<!--        /* ================= PHOTO ================= */-->
+
+<!--        .photo-container {-->
+<!--            flex-shrink: 0;-->
+<!--        }-->
+
+<!--        .profile-photo {-->
+<!--            width: 190px;-->
+<!--            height: 190px;-->
+<!--            border-radius: 18px;-->
+<!--            object-fit: cover;-->
+<!--            object-position: center top;-->
+<!--            border: 1px solid #efd9e2;-->
+<!--            background: #fbe7ef;-->
+<!--        }-->
+
+<!--        .default-photo {-->
+<!--            display: flex;-->
+<!--            align-items: center;-->
+<!--            justify-content: center;-->
+<!--            color: #9d3f72;-->
+<!--            font-size: 65px;-->
+<!--        }-->
+
+<!--        /* ================= INFORMATION ================= */-->
+
+<!--        .provider-information {-->
+<!--            flex: 1;-->
+<!--        }-->
+
+<!--        .provider-name {-->
+<!--            font-size: 32px;-->
+<!--            font-weight: 800;-->
+<!--            margin: 0;-->
+<!--            color: #30262c;-->
+<!--        }-->
+
+<!--        .verified {-->
+<!--            display: inline-flex;-->
+<!--            align-items: center;-->
+<!--            gap: 5px;-->
+<!--            background: #e8f7ef;-->
+<!--            color: #198754;-->
+<!--            padding: 5px 10px;-->
+<!--            border-radius: 20px;-->
+<!--            font-size: 12px;-->
+<!--            font-weight: 700;-->
+<!--            margin-left: 8px;-->
+<!--            vertical-align: middle;-->
+<!--        }-->
+
+<!--        .location {-->
+<!--            color: #75656d;-->
+<!--            margin-top: 8px;-->
+<!--            font-size: 15px;-->
+<!--        }-->
+
+<!--        .location i {-->
+<!--            color: #9d3f72;-->
+<!--        }-->
+
+<!--        /* ================= INFO GRID ================= */-->
+
+<!--        .info-grid {-->
+<!--            display: grid;-->
+<!--            grid-template-columns: repeat(2, minmax(180px, 1fr));-->
+<!--            gap: 12px;-->
+<!--            margin-top: 25px;-->
+<!--        }-->
+
+<!--        .info-item {-->
+<!--            background: #fff7fa;-->
+<!--            border: 1px solid #f3e0e7;-->
+<!--            border-radius: 12px;-->
+<!--            padding: 13px 15px;-->
+<!--        }-->
+
+<!--        .info-item i {-->
+<!--            color: #9d3f72;-->
+<!--            margin-right: 7px;-->
+<!--        }-->
+
+<!--        .info-label {-->
+<!--            display: block;-->
+<!--            color: #8a7a82;-->
+<!--            font-size: 11px;-->
+<!--            margin-bottom: 3px;-->
+<!--        }-->
+
+<!--        .info-value {-->
+<!--            font-weight: 700;-->
+<!--            font-size: 14px;-->
+<!--        }-->
+
+<!--        /* ================= ABOUT ================= */-->
+
+<!--        .about-section {-->
+<!--            margin-top: 25px;-->
+<!--        }-->
+
+<!--        .section-heading {-->
+<!--            font-size: 18px;-->
+<!--            font-weight: 800;-->
+<!--            margin-bottom: 9px;-->
+<!--        }-->
+
+<!--        .section-heading i {-->
+<!--            color: #9d3f72;-->
+<!--            margin-right: 7px;-->
+<!--        }-->
+
+<!--        .bio {-->
+<!--            color: #665860;-->
+<!--            line-height: 1.7;-->
+<!--            margin: 0;-->
+<!--        }-->
+
+<!--        /* ================= SKILLS ================= */-->
+
+<!--        .skills-section {-->
+<!--            margin-top: 22px;-->
+<!--        }-->
+
+<!--        .skills {-->
+<!--            display: flex;-->
+<!--            flex-wrap: wrap;-->
+<!--            gap: 8px;-->
+<!--        }-->
+
+<!--        .skill {-->
+<!--            background: #fbe7ef;-->
+<!--            color: #8e3967;-->
+<!--            padding: 8px 13px;-->
+<!--            border-radius: 20px;-->
+<!--            font-size: 12px;-->
+<!--            font-weight: 700;-->
+<!--        }-->
+
+<!--        .skill i {-->
+<!--            margin-right: 4px;-->
+<!--        }-->
+
+<!--        /* ================= CONTACT ================= */-->
+
+<!--        .contact-section {-->
+<!--            margin-top: 25px;-->
+<!--            display: flex;-->
+<!--            align-items: center;-->
+<!--            justify-content: space-between;-->
+<!--            gap: 20px;-->
+<!--            padding-top: 22px;-->
+<!--            border-top: 1px solid #f0dce4;-->
+<!--        }-->
+
+<!--        .phone {-->
+<!--            color: #9d3f72;-->
+<!--            font-size: 19px;-->
+<!--            font-weight: 800;-->
+<!--            text-decoration: none;-->
+<!--        }-->
+
+<!--        .phone:hover {-->
+<!--            color: #713053;-->
+<!--        }-->
+
+<!--        .phone i {-->
+<!--            margin-right: 6px;-->
+<!--        }-->
+
+<!--        .contact-btn {-->
+<!--            background: #9d3f72;-->
+<!--            color: white;-->
+<!--            text-decoration: none;-->
+<!--            border-radius: 10px;-->
+<!--            padding: 11px 22px;-->
+<!--            font-weight: 700;-->
+<!--            transition: .3s;-->
+<!--        }-->
+
+<!--        .contact-btn:hover {-->
+<!--            background: #81325d;-->
+<!--            color: white;-->
+<!--            transform: translateY(-1px);-->
+<!--        }-->
+
+<!--        /* ================= PORTFOLIO ================= */-->
+
+<!--        .portfolio-section {-->
+<!--            background: white;-->
+<!--            border: 1px solid #efd9e2;-->
+<!--            border-radius: 20px;-->
+<!--            padding: 30px;-->
+<!--            margin-top: 25px;-->
+<!--            box-shadow: 0 8px 30px rgba(157, 63, 114, 0.06);-->
+<!--        }-->
+
+<!--        .portfolio-heading {-->
+<!--            display: flex;-->
+<!--            align-items: center;-->
+<!--            justify-content: space-between;-->
+<!--            margin-bottom: 22px;-->
+<!--        }-->
+
+<!--        .portfolio-title {-->
+<!--            font-size: 24px;-->
+<!--            font-weight: 800;-->
+<!--            margin: 0;-->
+<!--        }-->
+
+<!--        .portfolio-title i {-->
+<!--            color: #9d3f72;-->
+<!--            margin-right: 7px;-->
+<!--        }-->
+
+<!--        .work-count {-->
+<!--            background: #fbe7ef;-->
+<!--            color: #8e3967;-->
+<!--            padding: 6px 11px;-->
+<!--            border-radius: 20px;-->
+<!--            font-size: 12px;-->
+<!--            font-weight: 700;-->
+<!--        }-->
+
+<!--        /* ================= PORTFOLIO CARD ================= */-->
+
+<!--        .portfolio-card {-->
+<!--            border: 1px solid #f0dce4;-->
+<!--            border-radius: 15px;-->
+<!--            overflow: hidden;-->
+<!--            background: white;-->
+<!--            height: 100%;-->
+<!--            transition: .3s;-->
+<!--        }-->
+
+<!--        .portfolio-card:hover {-->
+<!--            transform: translateY(-4px);-->
+<!--            box-shadow: 0 10px 25px rgba(157, 63, 114, .12);-->
+<!--        }-->
+
+<!--        .portfolio-image {-->
+<!--            width: 100%;-->
+<!--            height: 220px;-->
+<!--            object-fit: cover;-->
+<!--            display: block;-->
+<!--            cursor: pointer;-->
+<!--            transition: .3s;-->
+<!--        }-->
+
+<!--        .portfolio-card:hover .portfolio-image {-->
+<!--            transform: scale(1.02);-->
+<!--        }-->
+
+<!--        .portfolio-content {-->
+<!--            padding: 15px;-->
+<!--        }-->
+
+<!--        .portfolio-name {-->
+<!--            font-weight: 800;-->
+<!--            font-size: 15px;-->
+<!--            margin-bottom: 4px;-->
+<!--        }-->
+
+<!--        .portfolio-skill {-->
+<!--            color: #9d3f72;-->
+<!--            font-size: 12px;-->
+<!--            font-weight: 600;-->
+<!--        }-->
+
+<!--        .portfolio-description {-->
+<!--            color: #76676e;-->
+<!--            font-size: 12px;-->
+<!--            margin-top: 7px;-->
+<!--            margin-bottom: 0;-->
+<!--            line-height: 1.5;-->
+<!--        }-->
+
+<!--        /* ================= EMPTY PORTFOLIO ================= */-->
+
+<!--        .empty-portfolio {-->
+<!--            text-align: center;-->
+<!--            padding: 50px 20px;-->
+<!--        }-->
+
+<!--        .empty-portfolio i {-->
+<!--            font-size: 45px;-->
+<!--            color: #d58aa7;-->
+<!--        }-->
+
+<!--        .empty-portfolio h5 {-->
+<!--            margin-top: 12px;-->
+<!--            font-weight: 800;-->
+<!--        }-->
+
+<!--        .empty-portfolio p {-->
+<!--            color: #7d6d75;-->
+<!--        }-->
+
+<!--        /* ================= MODAL ================= */-->
+
+<!--        .modal-content {-->
+<!--            border: none;-->
+<!--            border-radius: 15px;-->
+<!--            overflow: hidden;-->
+<!--        }-->
+
+<!--        .modal-body {-->
+<!--            padding: 0;-->
+<!--            background: #1d171a;-->
+<!--        }-->
+
+<!--        .modal-body img {-->
+<!--            width: 100%;-->
+<!--            max-height: 80vh;-->
+<!--            object-fit: contain;-->
+<!--        }-->
+
+<!--        /* ================= RESPONSIVE ================= */-->
+
+<!--        @media (max-width: 768px) {-->
+
+<!--            .page-container {-->
+<!--                padding: 20px 14px 45px;-->
+<!--            }-->
+
+<!--            .provider-details {-->
+<!--                padding: 22px;-->
+<!--            }-->
+
+<!--            .provider-top {-->
+<!--                display: block;-->
+<!--            }-->
+
+<!--            .profile-photo {-->
+<!--                width: 140px;-->
+<!--                height: 140px;-->
+<!--                margin-bottom: 20px;-->
+<!--            }-->
+
+<!--            .provider-name {-->
+<!--                font-size: 27px;-->
+<!--            }-->
+
+<!--            .info-grid {-->
+<!--                grid-template-columns: 1fr;-->
+<!--            }-->
+
+<!--            .contact-section {-->
+<!--                display: block;-->
+<!--            }-->
+
+<!--            .contact-btn {-->
+<!--                display: block;-->
+<!--                text-align: center;-->
+<!--                margin-top: 15px;-->
+<!--            }-->
+
+<!--            .portfolio-section {-->
+<!--                padding: 22px;-->
+<!--            }-->
+
+<!--            .portfolio-image {-->
+<!--                height: 180px;-->
+<!--            }-->
+
+<!--        }-->
+
+<!--    </style>-->
+
+<!--</head>-->
+
+<!--<body>-->
+
+<!--&lt;!&ndash; ================= NAVBAR ================= &ndash;&gt;-->
+
+<!--<nav class="navbar">-->
+
+<!--    <div class="container">-->
+
+<!--        <div class="d-flex justify-content-between align-items-center">-->
+
+<!--            <a-->
+<!--                href="{% url 'home' %}"-->
+<!--                class="brand"-->
+<!--            >-->
+<!--                <i class="bi bi-heart-fill"></i>-->
+<!--                SheSkills-->
+<!--            </a>-->
+
+<!--            <a-->
+<!--                href="{% url 'marketplace' %}"-->
+<!--                class="back-link">-->
+<!--                <i class="bi bi-arrow-left me-1"></i>-->
+<!--                Back to Marketplace-->
+<!--            </a>-->
+
+<!--        </div>-->
+<!--    </div>-->
+<!--</nav>-->
+
+<!--&lt;!&ndash; ================= PAGE ================= &ndash;&gt;-->
+
+<!--<main class="page-container">-->
+
+<!--    &lt;!&ndash; ================= PROVIDER DETAILS ================= &ndash;&gt;-->
+
+<!--    <section class="provider-details">-->
+
+<!--        <div class="provider-top">-->
+
+<!--            &lt;!&ndash; PHOTO &ndash;&gt;-->
+
+<!--            <div class="photo-container">-->
+
+<!--                {% if provider.profile_photo %}-->
+
+<!--                    <img-->
+<!--                        src="{{ provider.profile_photo.url }}"-->
+<!--                        alt="{{ provider.full_name }}"-->
+<!--                        class="profile-photo">-->
+
+<!--                {% else %}-->
+
+<!--                    <div class="profile-photo default-photo">-->
+
+<!--                        <i class="bi bi-person"></i>-->
+
+<!--                    </div>-->
+
+<!--                {% endif %}-->
+
+<!--            </div>-->
+
+<!--            &lt;!&ndash; INFORMATION &ndash;&gt;-->
+
+<!--            <div class="provider-information">-->
+
+<!--                &lt;!&ndash; NAME &ndash;&gt;-->
+<!--                <h1 class="provider-name">-->
+
+<!--                    {{ provider.full_name }}-->
+
+<!--                    {% if provider.is_verified %}-->
+
+<!--                        <span class="verified">-->
+
+<!--                            <i class="bi bi-patch-check-fill"></i>-->
+
+<!--                            Verified-->
+
+<!--                        </span>-->
+
+<!--                    {% endif %}-->
+
+<!--                </h1>-->
+
+<!--                &lt;!&ndash; LOCATION &ndash;&gt;-->
+
+<!--                <div class="location">-->
+
+<!--                    <i class="bi bi-geo-alt-fill"></i>-->
+
+<!--                    {{ provider.location }}-->
+
+<!--                </div>-->
+
+
+<!--                &lt;!&ndash; INFORMATION &ndash;&gt;-->
+
+<!--                <div class="info-grid">-->
+
+<!--                    <div class="info-item">-->
+
+<!--                        <span class="info-label">-->
+<!--                            EXPERIENCE-->
+<!--                        </span>-->
+
+<!--                        <span class="info-value">-->
+
+<!--                            <i class="bi bi-briefcase"></i>-->
+
+<!--                            {{ provider.experience }} years-->
+
+<!--                        </span>-->
+
+<!--                    </div>-->
+
+<!--                    <div class="info-item">-->
+
+<!--                        <span class="info-label">-->
+<!--                            SKILLS-->
+<!--                        </span>-->
+
+<!--                        <span class="info-value">-->
+
+<!--                            <i class="bi bi-stars"></i>-->
+
+<!--                            {{ provider.skills.count }} skills-->
+
+<!--                        </span>-->
+
+<!--                    </div>-->
+
+<!--                    <div class="info-item">-->
+
+<!--                        <span class="info-label">-->
+<!--                            PORTFOLIO-->
+<!--                        </span>-->
+
+<!--                        <span class="info-value">-->
+
+<!--                            <i class="bi bi-images"></i>-->
+
+<!--                            {{ provider.portfolio.count }} works-->
+
+<!--                        </span>-->
+
+<!--                    </div>-->
+
+<!--                    <div class="info-item">-->
+
+<!--                        <span class="info-label">-->
+<!--                            STATUS-->
+<!--                        </span>-->
+
+<!--                        <span class="info-value">-->
+
+<!--                            {% if provider.is_verified %}-->
+
+<!--                                <i class="bi bi-check-circle-fill text-success"></i>-->
+<!--                                Verified Provider-->
+
+<!--                            {% else %}-->
+
+<!--                                <i class="bi bi-clock text-secondary"></i>-->
+<!--                                Not Verified-->
+
+<!--                            {% endif %}-->
+
+<!--                        </span>-->
+
+<!--                    </div>-->
+
+<!--                </div>-->
+
+<!--                &lt;!&ndash; ABOUT &ndash;&gt;-->
+
+<!--                <div class="about-section">-->
+
+<!--                    <h2 class="section-heading">-->
+
+<!--                        <i class="bi bi-person-heart"></i>-->
+
+<!--                        About-->
+
+<!--                    </h2>-->
+
+<!--                    {% if provider.bio %}-->
+
+<!--                        <p class="bio">-->
+<!--                            {{ provider.bio }}-->
+<!--                        </p>-->
+
+<!--                    {% else %}-->
+
+<!--                        <p class="bio">-->
+<!--                            This provider has not added an introduction yet.-->
+<!--                        </p>-->
+
+<!--                    {% endif %}-->
+
+<!--                </div>-->
+
+<!--                &lt;!&ndash; SKILLS &ndash;&gt;-->
+
+<!--                <div class="skills-section">-->
+
+<!--                    <h2 class="section-heading">-->
+
+<!--                        <i class="bi bi-lightbulb"></i>-->
+
+<!--                        Skills & Expertise-->
+
+<!--                    </h2>-->
+
+<!--                    <div class="skills">-->
+
+<!--                        {% for provider_skill in provider.skills.all %}-->
+
+<!--                            <span class="skill">-->
+
+<!--                                <i class="bi bi-check-circle-fill"></i>-->
+
+<!--                                {{ provider_skill.skill.name }}-->
+
+<!--                            </span>-->
+
+<!--                        {% empty %}-->
+
+<!--                            <span class="text-muted">-->
+<!--                                No skills added yet.-->
+<!--                            </span>-->
+
+<!--                        {% endfor %}-->
+
+<!--                    </div>-->
+
+<!--                </div>-->
+
+<!--                &lt;!&ndash; CONTACT &ndash;&gt;-->
+
+<!--                <div class="contact-section">-->
+
+<!--                    <div>-->
+
+<!--                        <div class="small text-muted mb-1">-->
+<!--                            Contact Number-->
+<!--                        </div>-->
+
+<!--                        {% if provider.user.phone %}-->
+
+<!--                            <a-->
+<!--                                href="tel:{{ provider.user.phone }}"-->
+<!--                                class="phone"-->
+<!--                            >-->
+
+<!--                                <i class="bi bi-telephone-fill"></i>-->
+
+<!--                                {{ provider.user.phone }}-->
+
+<!--                            </a>-->
+
+<!--                        {% else %}-->
+
+<!--                            <span class="text-muted">-->
+<!--                                Phone number not available-->
+<!--                            </span>-->
+
+<!--                        {% endif %}-->
+
+<!--                    </div>-->
+
+
+<!--                    {% if provider.user.phone %}-->
+
+<!--                        <a-->
+<!--                            href="tel:{{ provider.user.phone }}"-->
+<!--                           >-->
+
+<!--&lt;!&ndash;                            <i class="bi bi-telephone-fill me-1"></i>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                            Contact Provider&ndash;&gt;-->
+
+<!--                        </a>-->
+
+<!--                    {% endif %}-->
+
+<!--                </div>-->
+
+<!--            </div>-->
+
+<!--        </div>-->
+
+
+<!--    </section>-->
+
+
+<!--    &lt;!&ndash; ================= PORTFOLIO ================= &ndash;&gt;-->
+
+<!--&lt;!&ndash;    <section class="portfolio-section">&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;        <div class="portfolio-heading">&ndash;&gt;-->
+
+<!--&lt;!&ndash;            <h2 class="portfolio-title">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                <i class="bi bi-images"></i>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                Portfolio&ndash;&gt;-->
+
+<!--&lt;!&ndash;            </h2>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;            <span class="work-count">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                {{ provider.portfolio.count }} works&ndash;&gt;-->
+
+<!--&lt;!&ndash;            </span>&ndash;&gt;-->
+
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;        {% if provider.portfolio.all %}&ndash;&gt;-->
+
+<!--&lt;!&ndash;            <div class="row g-4">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                {% for item in provider.portfolio.all %}&ndash;&gt;-->
+
+<!--&lt;!&ndash;                    <div class="col-12 col-sm-6 col-lg-4">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                        <div class="portfolio-card">&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;                            <img&ndash;&gt;-->
+<!--&lt;!&ndash;                                src="{{ item.image.url }}"&ndash;&gt;-->
+<!--&lt;!&ndash;                                alt="{{ item.title }}"&ndash;&gt;-->
+<!--&lt;!&ndash;                                class="portfolio-image"&ndash;&gt;-->
+<!--&lt;!&ndash;                                data-bs-toggle="modal"&ndash;&gt;-->
+<!--&lt;!&ndash;                                data-bs-target="#imageModal"&ndash;&gt;-->
+<!--&lt;!&ndash;                                data-image="{{ item.image.url }}"&ndash;&gt;-->
+<!--&lt;!&ndash;                                data-title="{{ item.title }}"&ndash;&gt;-->
+<!--&lt;!&ndash;                            >&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;                            <div class="portfolio-content">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                                <div class="portfolio-name">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                                    {{ item.title }}&ndash;&gt;-->
+
+<!--&lt;!&ndash;                                </div>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;                                <div class="portfolio-skill">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                                    <i class="bi bi-tag"></i>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                                    {{ item.skill.name }}&ndash;&gt;-->
+
+<!--&lt;!&ndash;                                </div>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;                                {% if item.description %}&ndash;&gt;-->
+
+<!--&lt;!&ndash;                                    <p class="portfolio-description">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                                        {{ item.description }}&ndash;&gt;-->
+
+<!--&lt;!&ndash;                                    </p>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                                {% endif %}&ndash;&gt;-->
+
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;                        </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                {% endfor %}&ndash;&gt;-->
+
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;        {% else %}&ndash;&gt;-->
+
+<!--&lt;!&ndash;            <div class="empty-portfolio">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                <i class="bi bi-images"></i>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                <h5>&ndash;&gt;-->
+<!--&lt;!&ndash;                    No portfolio works yet&ndash;&gt;-->
+<!--&lt;!&ndash;                </h5>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                <p>&ndash;&gt;-->
+<!--&lt;!&ndash;                    This provider hasn't uploaded any work samples.&ndash;&gt;-->
+<!--&lt;!&ndash;                </p>&ndash;&gt;-->
+
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;        {% endif %}&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;    </section>&ndash;&gt;-->
+
+
+
+<!--<section class="portfolio-section">-->
+
+<!--    <div class="portfolio-heading">-->
+
+<!--        <h2 class="portfolio-title">-->
+<!--            <i class="bi bi-images"></i>-->
+<!--            Portfolio-->
+<!--        </h2>-->
+
+<!--        <div class="portfolio-actions">-->
+
+<!--            <span class="work-count">-->
+<!--                {{ provider.portfolio.count }} works-->
+<!--            </span>-->
+
+<!--            {% if request.user.is_authenticated and request.user == provider.user %}-->
+<!--                <a href="{% url 'add_portfolio' %}"-->
+<!--                   class="add-portfolio-btn">-->
+<!--                    <i class="bi bi-plus-circle"></i>-->
+<!--                    Add Portfolio Work-->
+<!--                </a>-->
+<!--            {% endif %}-->
+
+<!--        </div>-->
+
+<!--    </div>-->
+
+<!--    {% if provider.portfolio.exists %}-->
+
+<!--        <div class="row g-4">-->
+
+<!--            {% for item in provider.portfolio.all %}-->
+
+<!--                <div class="col-12 col-sm-6 col-lg-4">-->
+<!--                    <div class="portfolio-card">-->
+
+<!--                        <img-->
+<!--                            src="{{ item.image.url }}"-->
+<!--                            alt="{{ item.title }}"-->
+<!--                            class="portfolio-image"-->
+<!--                            data-bs-toggle="modal"-->
+<!--                            data-bs-target="#imageModal"-->
+<!--                            data-image="{{ item.image.url }}"-->
+<!--                            data-title="{{ item.title }}"-->
+<!--                        >-->
+
+<!--                        <div class="portfolio-content">-->
+
+<!--                            <div class="portfolio-name">-->
+<!--                                {{ item.title }}-->
+<!--                            </div>-->
+
+<!--                            <div class="portfolio-skill">-->
+<!--                                <i class="bi bi-tag"></i>-->
+<!--                                {{ item.skill.name }}-->
+<!--                            </div>-->
+
+<!--                            {% if item.description %}-->
+<!--                                <p class="portfolio-description">-->
+<!--                                    {{ item.description }}-->
+<!--                                </p>-->
+<!--                            {% endif %}-->
+
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--            {% endfor %}-->
+
+<!--        </div>-->
+
+<!--    {% else %}-->
+
+<!--        <div class="empty-portfolio">-->
+<!--            <i class="bi bi-images"></i>-->
+
+<!--            <h5>No portfolio works yet</h5>-->
+
+<!--            <p>This provider hasn't uploaded any work samples.</p>-->
+
+<!--            {% if request.user.is_authenticated and request.user == provider.user %}-->
+<!--                <a href="{% url 'add_portfolio' %}"-->
+<!--                   class="add-portfolio-btn">-->
+<!--                    <i class="bi bi-plus-circle"></i>-->
+<!--                    Upload Your First Work-->
+<!--                </a>-->
+<!--            {% endif %}-->
+<!--        </div>-->
+
+<!--    {% endif %}-->
+
+<!--</section>-->
+
+
+
+
+
+
+
+
+<!--</main>-->
+
+
+<!--&lt;!&ndash; ================= IMAGE MODAL ================= &ndash;&gt;-->
+
+<!--&lt;!&ndash;<div&ndash;&gt;-->
+<!--&lt;!&ndash;    class="modal fade"&ndash;&gt;-->
+<!--&lt;!&ndash;    id="imageModal"&ndash;&gt;-->
+<!--&lt;!&ndash;    tabindex="-1"&ndash;&gt;-->
+<!--&lt;!&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;    <div class="modal-dialog modal-dialog-centered modal-lg">&ndash;&gt;-->
+
+<!--&lt;!&ndash;        <div class="modal-content">&ndash;&gt;-->
+
+<!--&lt;!&ndash;            <div class="modal-header">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                <h5&ndash;&gt;-->
+<!--&lt;!&ndash;                    class="modal-title"&ndash;&gt;-->
+<!--&lt;!&ndash;                    id="imageModalTitle"&ndash;&gt;-->
+<!--&lt;!&ndash;                >&ndash;&gt;-->
+<!--&lt;!&ndash;                    Portfolio&ndash;&gt;-->
+<!--&lt;!&ndash;                </h5>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                <button&ndash;&gt;-->
+<!--&lt;!&ndash;                    type="button"&ndash;&gt;-->
+<!--&lt;!&ndash;                    class="btn-close"&ndash;&gt;-->
+<!--&lt;!&ndash;                    data-bs-dismiss="modal"&ndash;&gt;-->
+<!--&lt;!&ndash;                ></button>&ndash;&gt;-->
+
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;            <div class="modal-body">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                <img&ndash;&gt;-->
+<!--&lt;!&ndash;                    src=""&ndash;&gt;-->
+<!--&lt;!&ndash;                    id="imageModalImage"&ndash;&gt;-->
+<!--&lt;!&ndash;                    alt="Portfolio"&ndash;&gt;-->
+<!--&lt;!&ndash;                >&ndash;&gt;-->
+
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+<!--<div class="modal fade" id="imageModal" tabindex="-1">-->
+<!--    <div class="modal-dialog modal-dialog-centered modal-lg">-->
+<!--        <div class="modal-content">-->
+
+<!--            <div class="modal-header">-->
+<!--                <h5 class="modal-title" id="imageModalTitle"></h5>-->
+<!--                <button type="button"-->
+<!--                        class="btn-close"-->
+<!--                        data-bs-dismiss="modal"-->
+<!--                        aria-label="Close"></button>-->
+<!--            </div>-->
+
+<!--            <div class="modal-body text-center">-->
+<!--                <img id="imageModalImage"-->
+<!--                     src=""-->
+<!--                     alt="Portfolio preview"-->
+<!--                     class="img-fluid rounded">-->
+<!--            </div>-->
+
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+
+
+
+<!--&lt;!&ndash; Bootstrap JS &ndash;&gt;-->
+
+<!--<script-->
+<!--    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"-->
+<!--&gt;</script>-->
+
+
+<!--<script>-->
+
+<!--&lt;!&ndash;    /* Portfolio image preview */&ndash;&gt;-->
+
+<!--&lt;!&ndash;    const portfolioImages =&ndash;&gt;-->
+<!--&lt;!&ndash;        document.querySelectorAll(".portfolio-image");&ndash;&gt;-->
+
+<!--&lt;!&ndash;    const modalImage =&ndash;&gt;-->
+<!--&lt;!&ndash;        document.getElementById("imageModalImage");&ndash;&gt;-->
+
+<!--&lt;!&ndash;    const modalTitle =&ndash;&gt;-->
+<!--&lt;!&ndash;        document.getElementById("imageModalTitle");&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;    portfolioImages.forEach(image => {&ndash;&gt;-->
+
+<!--&lt;!&ndash;        image.addEventListener("click", function () {&ndash;&gt;-->
+
+<!--&lt;!&ndash;            modalImage.src =&ndash;&gt;-->
+<!--&lt;!&ndash;                this.dataset.image;&ndash;&gt;-->
+
+<!--&lt;!&ndash;            modalTitle.textContent =&ndash;&gt;-->
+<!--&lt;!&ndash;                this.dataset.title;&ndash;&gt;-->
+
+<!--&lt;!&ndash;        });&ndash;&gt;-->
+
+<!--&lt;!&ndash;    });&ndash;&gt;-->
+
+
+<!--    /* Portfolio image preview */-->
+
+<!--document.addEventListener("DOMContentLoaded", function () {-->
+
+<!--    const portfolioImages = document.querySelectorAll(".portfolio-image");-->
+
+<!--    const modalImage = document.getElementById("imageModalImage");-->
+<!--    const modalTitle = document.getElementById("imageModalTitle");-->
+<!--    const imageModalElement = document.getElementById("imageModal");-->
+
+<!--    portfolioImages.forEach(function (image) {-->
+
+<!--        image.addEventListener("click", function () {-->
+
+<!--            const imageUrl = this.dataset.image;-->
+<!--            const imageTitle = this.dataset.title;-->
+
+<!--            if (modalImage && imageUrl) {-->
+<!--                modalImage.src = imageUrl;-->
+<!--                modalImage.alt = imageTitle || "Portfolio image";-->
+<!--            }-->
+
+<!--            if (modalTitle) {-->
+<!--                modalTitle.textContent = imageTitle || "Portfolio Work";-->
+<!--            }-->
+
+<!--        });-->
+
+<!--    });-->
+
+<!--    // Clear the preview when the modal closes-->
+<!--    if (imageModalElement) {-->
+<!--        imageModalElement.addEventListener("hidden.bs.modal", function () {-->
+<!--            if (modalImage) {-->
+<!--                modalImage.src = "";-->
+<!--            }-->
+
+<!--            if (modalTitle) {-->
+<!--                modalTitle.textContent = "";-->
+<!--            }-->
+<!--        });-->
+<!--    }-->
+
+<!--});-->
+
+<!--</script>-->
+
+
+<!--</body>-->
+
+<!--</html>-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{ provider.full_name }} | SheSkills</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #fff9fb;
+            color: #30262c;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            background: #fff;
+            border-bottom: 1px solid #f0dce4;
+            padding: 15px 0;
+        }
+
+        .brand {
+            text-decoration: none;
+            color: #9d3f72;
+            font-size: 24px;
+            font-weight: 800;
+        }
+
+        .brand i {
+            margin-right: 6px;
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: #6f6269;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            color: #9d3f72;
+        }
+
+        /* PAGE */
+        .page-container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 35px 20px 60px;
+        }
+
+        /* PROVIDER DETAILS */
+        .provider-details,
+        .portfolio-section {
+            background: #fff;
+            border: 1px solid #efd9e2;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(157, 63, 114, 0.06);
+        }
+
+        .provider-details {
+            padding: 35px;
+        }
+
+        .provider-top {
+            display: flex;
+            gap: 35px;
+            align-items: flex-start;
+        }
+
+        /* PHOTO */
+        .photo-container {
+            flex-shrink: 0;
+        }
+
+        .profile-photo {
+            width: 190px;
+            height: 190px;
+            border-radius: 18px;
+            object-fit: cover;
+            object-position: center top;
+            border: 1px solid #efd9e2;
+            background: #fbe7ef;
+        }
+
+        .default-photo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #9d3f72;
+            font-size: 65px;
+        }
+
+        /* PROVIDER INFORMATION */
+        .provider-information {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .provider-name {
+            font-size: 32px;
+            font-weight: 800;
+            margin: 0;
+            color: #30262c;
+            overflow-wrap: anywhere;
+        }
+
+        .verified {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: #e8f7ef;
+            color: #198754;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+
+        .location {
+            color: #75656d;
+            margin-top: 8px;
+            font-size: 15px;
+        }
+
+        .location i,
+        .section-heading i {
+            color: #9d3f72;
+        }
+
+        /* INFORMATION GRID */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .info-item {
+            background: #fff7fa;
+            border: 1px solid #f3e0e7;
+            border-radius: 12px;
+            padding: 13px 15px;
+            min-width: 0;
+        }
+
+        .info-label {
+            display: block;
+            color: #8a7a82;
+            font-size: 11px;
+            margin-bottom: 3px;
+        }
+
+        .info-value {
+            font-weight: 700;
+            font-size: 14px;
+            overflow-wrap: anywhere;
+        }
+
+        .info-value i {
+            color: #9d3f72;
+            margin-right: 5px;
+        }
+
+        /* ABOUT */
+        .about-section,
+        .skills-section {
+            margin-top: 25px;
+        }
+
+        .section-heading {
+            font-size: 18px;
+            font-weight: 800;
+            margin-bottom: 9px;
+        }
+
+        .section-heading i {
+            margin-right: 7px;
+        }
+
+        .bio {
+            color: #665860;
+            line-height: 1.7;
+            margin: 0;
+            white-space: pre-line;
+        }
+
+        /* SKILLS */
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill {
+            background: #fbe7ef;
+            color: #8e3967;
+            padding: 8px 13px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .skill i {
+            margin-right: 4px;
+        }
+
+        /* CONTACT */
+        .contact-section {
+            margin-top: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding-top: 22px;
+            border-top: 1px solid #f0dce4;
+        }
+
+        .phone {
+            color: #9d3f72;
+            font-size: 19px;
+            font-weight: 800;
+            text-decoration: none;
+            overflow-wrap: anywhere;
+        }
+
+        .phone:hover {
+            color: #713053;
+        }
+
+        .phone i {
+            margin-right: 6px;
+        }
+
+        .contact-btn,
+        .add-portfolio-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: #9d3f72;
+            color: #fff;
+            text-decoration: none;
+            border: none;
+            border-radius: 10px;
+            padding: 11px 18px;
+            font-weight: 700;
+            transition: 0.3s ease;
+        }
+
+        .contact-btn:hover,
+        .add-portfolio-btn:hover {
+            background: #81325d;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        /* PORTFOLIO */
+        .portfolio-section {
+            padding: 30px;
+            margin-top: 25px;
+        }
+
+        .portfolio-heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            margin-bottom: 22px;
+        }
+
+        .portfolio-title {
+            font-size: 24px;
+            font-weight: 800;
+            margin: 0;
+        }
+
+        .portfolio-title i {
+            color: #9d3f72;
+            margin-right: 7px;
+        }
+
+        .portfolio-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .work-count {
+            display: inline-block;
+            white-space: nowrap;
+            background: #fbe7ef;
+            color: #8e3967;
+            padding: 6px 11px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .add-portfolio-btn {
+            font-size: 14px;
+            padding: 10px 16px;
+        }
+
+        /* PORTFOLIO CARDS */
+        .portfolio-card {
+            border: 1px solid #f0dce4;
+            border-radius: 15px;
+            overflow: hidden;
+            background: #fff;
+            height: 100%;
+            transition: 0.3s ease;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(157, 63, 114, 0.12);
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        .portfolio-image:hover {
+            opacity: 0.9;
+        }
+
+        .portfolio-content {
+            padding: 15px;
+        }
+
+        .portfolio-name {
+            font-weight: 800;
+            font-size: 15px;
+            margin-bottom: 4px;
+            overflow-wrap: anywhere;
+        }
+
+        .portfolio-skill {
+            color: #9d3f72;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .portfolio-description {
+            color: #76676e;
+            font-size: 13px;
+            margin-top: 7px;
+            margin-bottom: 0;
+            line-height: 1.6;
+            overflow-wrap: anywhere;
+        }
+
+        /* EMPTY PORTFOLIO */
+        .empty-portfolio {
+            text-align: center;
+            padding: 45px 20px;
+            border: 1px dashed #e8c6d5;
+            border-radius: 15px;
+            background: #fffafd;
+        }
+
+        .empty-portfolio > i {
+            font-size: 45px;
+            color: #d58aa7;
+        }
+
+        .empty-portfolio h5 {
+            margin-top: 12px;
+            font-weight: 800;
+        }
+
+        .empty-portfolio p {
+            color: #7d6d75;
+            margin-bottom: 18px;
+        }
+
+        /* IMAGE PREVIEW MODAL */
+        .modal-content {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .modal-header {
+            border-bottom: 1px solid #f0dce4;
+        }
+
+        .modal-title {
+            font-weight: 700;
+            color: #713053;
+            overflow-wrap: anywhere;
+        }
+
+        .modal-body {
+            padding: 0;
+            background: #1d171a;
+        }
+
+        .modal-body img {
+            display: block;
+            width: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .page-container {
+                padding: 20px 14px 45px;
+            }
+
+            .provider-details {
+                padding: 22px;
+            }
+
+            .provider-top {
+                display: block;
+            }
+
+            .profile-photo {
+                width: 140px;
+                height: 140px;
+                margin-bottom: 20px;
+            }
+
+            .provider-name {
+                font-size: 27px;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-section {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .contact-btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .portfolio-section {
+                padding: 22px;
+            }
+
+            .portfolio-heading {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .portfolio-actions {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .portfolio-image {
+                height: 200px;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .brand {
+                font-size: 21px;
+            }
+
+            .back-link {
+                font-size: 12px;
+            }
+
+            .portfolio-actions {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .add-portfolio-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center gap-3 w-100">
+
+            <a href="{% url 'home' %}" class="brand">
+                <i class="bi bi-heart-fill"></i>
+                SheSkills
+            </a>
+
+            <a href="{% url 'marketplace' %}" class="back-link">
+                <i class="bi bi-arrow-left me-1"></i>
+                Back to Marketplace
+            </a>
+
+        </div>
+    </div>
+</nav>
+
+<main class="page-container">
+
+    <!-- PROVIDER DETAILS -->
+    <section class="provider-details">
+
+        <div class="provider-top">
+
+            <!-- PROFILE PHOTO -->
+            <div class="photo-container">
+                {% if provider.profile_photo %}
+                    <img
+                        src="{{ provider.profile_photo.url }}"
+                        alt="{{ provider.full_name }}"
+                        class="profile-photo"
+                    >
+                {% else %}
+                    <div class="profile-photo default-photo">
+                        <i class="bi bi-person"></i>
+                    </div>
+                {% endif %}
+            </div>
+
+            <!-- PROVIDER INFORMATION -->
+            <div class="provider-information">
+
+                <h1 class="provider-name">
+                    {{ provider.full_name }}
+
+                    {% if provider.is_verified %}
+                        <span class="verified">
+                            <i class="bi bi-patch-check-fill"></i>
+                            Verified
+                        </span>
+                    {% endif %}
+                </h1>
+
+                <div class="location">
+                    <i class="bi bi-geo-alt-fill"></i>
+                    {{ provider.location }}
+                </div>
+
+                <!-- INFORMATION GRID -->
+                <div class="info-grid">
+
+                    <div class="info-item">
+                        <span class="info-label">EXPERIENCE</span>
+                        <span class="info-value">
+                            <i class="bi bi-briefcase"></i>
+                            {{ provider.experience }} years
+                        </span>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="info-label">SKILLS</span>
+                        <span class="info-value">
+                            <i class="bi bi-stars"></i>
+                            {{ provider.skills.count }} skills
+                        </span>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="info-label">PORTFOLIO</span>
+                        <span class="info-value">
+                            <i class="bi bi-images"></i>
+                            {{ provider.portfolio.count }} works
+                        </span>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="info-label">STATUS</span>
+                        <span class="info-value">
+                            {% if provider.is_verified %}
+                                <i class="bi bi-check-circle-fill text-success"></i>
+                                Verified Provider
+                            {% else %}
+                                <i class="bi bi-clock text-secondary"></i>
+                                Not Verified
+                            {% endif %}
+                        </span>
+                    </div>
+
+                </div>
+
+                <!-- ABOUT -->
+                <div class="about-section">
+                    <h2 class="section-heading">
+                        <i class="bi bi-person-heart"></i>
+                        About
+                    </h2>
+
+                    {% if provider.bio %}
+                        <p class="bio">{{ provider.bio }}</p>
+                    {% else %}
+                        <p class="bio">
+                            This provider has not added an introduction yet.
+                        </p>
+                    {% endif %}
+                </div>
+
+                <!-- SKILLS -->
+                <div class="skills-section">
+                    <h2 class="section-heading">
+                        <i class="bi bi-lightbulb"></i>
+                        Skills &amp; Expertise
+                    </h2>
+
+                    <div class="skills">
+                        {% for provider_skill in provider.skills.all %}
+                            <span class="skill">
+                                <i class="bi bi-check-circle-fill"></i>
+                                {{ provider_skill.skill.name }}
+                            </span>
+                        {% empty %}
+                            <span class="text-muted">No skills added yet.</span>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <!-- CONTACT -->
+                <div class="contact-section">
+
+                    <div>
+                        <div class="small text-muted mb-1">
+                            Contact Number
+                        </div>
+
+                        {% if provider.user.phone %}
+                            <a
+                                href="tel:{{ provider.user.phone }}"
+                                class="phone"
+                            >
+                                <i class="bi bi-telephone-fill"></i>
+                                {{ provider.user.phone }}
+                            </a>
+                        {% else %}
+                            <span class="text-muted">
+                                Phone number not available
+                            </span>
+                        {% endif %}
+                    </div>
+
+                    {% if provider.user.phone %}
+                        <a
+                            href="tel:{{ provider.user.phone }}"
+                            class="contact-btn"
+                        >
+                            <i class="bi bi-telephone-fill"></i>
+                            Contact Provider
+                        </a>
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section class="portfolio-section">
+
+        <div class="portfolio-heading">
+
+            <h2 class="portfolio-title">
+                <i class="bi bi-images"></i>
+                Portfolio
+            </h2>
+
+            <div class="portfolio-actions">
+
+                <span class="work-count">
+                    {{ provider.portfolio.count }} works
+                </span>
+
+                {% if request.user.is_authenticated and request.user == provider.user %}
+                    <a href="{% url 'add_skill' %}" class="add-portfolio-btn">
+                        <i class="bi bi-plus-circle"></i>
+                        Add Skill
+                    </a>
+                    <a href="{% url 'add_portfolio' %}" class="add-portfolio-btn">
+                        <i class="bi bi-plus-circle"></i>
+                        Add Portfolio Work
+                    </a>
+                    <a href="{% url 'edit_profile' %}" class="add-portfolio-btn">
+                        <i class="bi bi-pencil"></i>
+                        Edit Profile
+                    </a>
+                {% endif %}
+
+            </div>
+        </div>
+
+        {% for item in provider.portfolio.all %}
+
+            {% if forloop.first %}
+                <div class="row g-4">
+            {% endif %}
+
+            <div class="col-12 col-sm-6 col-lg-4">
+                <div class="portfolio-card">
+
+                    <img
+                        src="{{ item.image.url }}"
+                        alt="{{ item.title }}"
+                        class="portfolio-image"
+                        data-bs-toggle="modal"
+                        data-bs-target="#imageModal"
+                        data-image="{{ item.image.url }}"
+                        data-title="{{ item.title }}"
+                        loading="lazy"
+                    >
+
+                    <div class="portfolio-content">
+
+                        <div class="portfolio-name">
+                            {{ item.title }}
+                        </div>
+
+                        <div class="portfolio-skill">
+                            <i class="bi bi-tag"></i>
+                            {{ item.skill.name }}
+                        </div>
+
+                        {% if item.description %}
+                            <p class="portfolio-description">
+                                {{ item.description }}
+                            </p>
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
+
+            {% if forloop.last %}
+                </div>
+            {% endif %}
+
+        {% empty %}
+
+            <div class="empty-portfolio">
+                <i class="bi bi-images"></i>
+
+                <h5>No portfolio works yet</h5>
+
+                <p>
+                    This provider hasn't uploaded any work samples.
+                </p>
+
+                {% if request.user.is_authenticated and request.user == provider.user %}
+                    <a href="{% url 'add_portfolio' %}" class="add-portfolio-btn">
+                        <i class="bi bi-plus-circle"></i>
+                        Upload Your First Work
+                    </a>
+                {% endif %}
+            </div>
+
+        {% endfor %}
+
+    </section>
+
+</main>
+
+<!-- IMAGE PREVIEW MODAL -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title" id="imageModalTitle">
+                    Portfolio Work
+                </h5>
+
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                ></button>
+            </div>
+
+            <div class="modal-body text-center">
+                <img
+                    id="imageModalImage"
+                    src=""
+                    alt="Portfolio preview"
+                >
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- BOOTSTRAP JAVASCRIPT -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- PORTFOLIO IMAGE PREVIEW -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const modalImage = document.getElementById("imageModalImage");
+    const modalTitle = document.getElementById("imageModalTitle");
+    const imageModal = document.getElementById("imageModal");
+
+    document.querySelectorAll(".portfolio-image").forEach(function (image) {
+
+        image.addEventListener("click", function () {
+
+            if (modalImage) {
+                modalImage.src = this.dataset.image || this.src;
+                modalImage.alt = this.dataset.title || "Portfolio image";
+            }
+
+            if (modalTitle) {
+                modalTitle.textContent =
+                    this.dataset.title || "Portfolio Work";
+            }
+
+        });
+
+    });
+
+    if (imageModal) {
+        imageModal.addEventListener("hidden.bs.modal", function () {
+
+            if (modalImage) {
+                modalImage.src = "";
+            }
+
+            if (modalTitle) {
+                modalTitle.textContent = "Portfolio Work";
+            }
+
+        });
+    }
+
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!--<!DOCTYPE html>-->
+
+<!--<html>-->
+
+<!--<head>-->
+<!--    <title>Create Profile - SheSkills</title>-->
+<!--</head>-->
+
+<!--<body>-->
+
+<!--    <h1>🌸 SheSkills</h1>-->
+<!--    <h2>Create Your Provider Profile</h2>-->
+
+<!--    <form method="POST" enctype="multipart/form-data">-->
+
+<!--        {% csrf_token %}-->
+
+<!--        {{ form.as_p }}-->
+
+<!--        <button type="submit">-->
+<!--            Save Profile-->
+<!--        </button>-->
+
+<!--    </form>-->
+<!--    <br>-->
+<!--    <a href="{% url 'provider_dashboard' %}">-->
+<!--        Back to Dashboard-->
+<!--    </a>-->
+
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Profile - SheSkills</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #fff7f0, #fde4d4);
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: #3d302b;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: 700;
+            color: #c66b46;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            color: #806b60;
+            font-size: 14px;
+        }
+
+        /* Main Form Card */
+        .profile-container {
+            max-width: 750px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 35px rgba(120, 72, 48, 0.12);
+        }
+
+        .profile-container h2 {
+            text-align: center;
+            font-size: 26px;
+            color: #4b342b;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 14px;
+            color: #8b7b73;
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+
+        /* Django Form Fields */
+        form p {
+            margin-bottom: 20px;
+        }
+
+        form label {
+            display: block;
+            font-weight: 500;
+            font-size: 14px;
+            margin-bottom: 8px;
+            color: #4b342b;
+        }
+
+        input:not([type="checkbox"]):not([type="radio"]),
+        select,
+        textarea {
+            width: 100%;
+            padding: 13px 15px;
+            border: 1px solid #e8d9d0;
+            border-radius: 10px;
+            background-color: #fffdfb;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            color: #3d302b;
+            outline: none;
+            transition: 0.3s ease;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #d98761;
+            box-shadow: 0 0 0 3px rgba(217, 135, 97, 0.13);
+            background-color: #ffffff;
+        }
+
+        textarea {
+            min-height: 110px;
+            resize: vertical;
+        }
+
+        input[type="file"] {
+            padding: 10px;
+            background: #fff7f2;
+        }
+
+        input[type="checkbox"],
+        input[type="radio"] {
+            accent-color: #c66b46;
+            margin-right: 6px;
+        }
+
+        form ul {
+            list-style: none;
+            margin-top: 8px;
+        }
+
+        form li {
+            margin-bottom: 8px;
+        }
+
+        .helptext {
+            display: block;
+            margin-top: 6px;
+            color: #8b7b73;
+            font-size: 12px;
+        }
+
+        .errorlist {
+            color: #c0392b;
+            font-size: 13px;
+            list-style: none;
+            margin-bottom: 8px;
+        }
+
+        /* Save Button */
+        .save-btn {
+            width: 100%;
+            border: none;
+            border-radius: 10px;
+            padding: 14px;
+            background: linear-gradient(135deg, #d98761, #bd6845);
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s ease;
+            margin-top: 5px;
+        }
+
+        .save-btn:hover {
+            background: linear-gradient(135deg, #bd6845, #a95434);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(189, 104, 69, 0.25);
+        }
+
+        /* Dashboard Link */
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 25px;
+            color: #bd6845;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .back-link:hover {
+            color: #8f462b;
+            text-decoration: underline;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 25px;
+            color: #9b877d;
+            font-size: 12px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 600px) {
+            body {
+                padding: 25px 12px;
+            }
+
+            .profile-container {
+                padding: 25px 18px;
+                border-radius: 15px;
+            }
+
+            .profile-container h2 {
+                font-size: 22px;
+            }
+
+            .logo {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="logo">🌸 SheSkills</div>
+        <p>Share your talent. Showcase your skills. Grow your opportunities.</p>
+    </header>
+
+    <main class="profile-container">
+
+        <h2>Create Your Provider Profile</h2>
+
+        <p class="subtitle">
+            Tell customers about yourself, your skills, and your work.
+            Create your profile and let your talent shine.
+        </p>
+
+        <form method="POST" enctype="multipart/form-data">
+
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button type="submit" class="save-btn">
+                Save Profile
+            </button>
+
+        </form>
+
+        <a href="{% url 'provider_dashboard' %}" class="back-link">
+            ← Back to Dashboard
+        </a>
+
+    </main>
+
+    <footer class="footer">
+        © 2026 SheSkills. Empowering women through their talents.
+    </footer>
+
+</body>
+</html>
